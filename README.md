@@ -75,6 +75,4 @@ The following technologies will be used and considered:
 ## Wireframes
 ![main-view](./assets/wireframes/main_view_wireframe.png)
 
-![main-view](https://github.com/stevenmchoi/rhythm_typer/blob/master/assets/wireframes/main_view_wireframe.png)
-
 ## Timeline
