@@ -49,11 +49,15 @@ These basic features will be provided:
 	- [ ] Volume control: music and sound effects
 	- [ ] Keystroke feedback sound effect
 	- [ ] Difficulty: (speed of visual cues only)
+	- [ ] Pause (tap both ctrl keys)
 
 ### Upcoming features
 - [ ] Number keys as traditional beatmaps (depicted in the wireframe)
-- [ ] Full sentences, including capitalization and punctuation
+  This affords the opportunity for a player with more skill to type one-handed
+  words (words with characters on only the left or right side of the keyboard),
+  while holding down and playing number keys
 
+- [ ] Full sentences, including capitalization and punctuation
 There is also the possibility of using full sentences, as in a traditional
 typing game. However, double keystrokes with `shift` must be correctly handled.
 - [ ] Custom audio tracks and beatmaps
@@ -76,3 +80,22 @@ The following technologies will be used and considered:
 ![main-view](./assets/wireframes/main_view_wireframe.png)
 
 ## Timeline
+### w9d1
+- [ ] Finish canvas
+- [ ] Finish dictionary
+- [ ] Choose audio technology
+- [ ] Play song from canvas w/ mute button
+- [ ] Pause game by tapping both ctrl keys
+
+### w9d2
+- [ ] Type and handle errors for first word in sample song (letters changing)
+- [ ] Change out text for each completed segment
+- [ ] Finish first song w/ final score output
+- [ ] Create visual cues
+
+### w9d3
+- [ ] Create main menu and settings
+- [ ] Tutorial
+
+### w9d4
+- [ ] Create method for creating beatmaps, either manually or randomly generated
