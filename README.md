@@ -33,70 +33,14 @@ handlings would frustrate users after getting a single character wrong while the
 game forces them to keep playing. Stopping the music itself would also lead to
 choppy gameplay and would be too jarring for rhythm game players.
 
-## MVP Features
-These basic features will be provided:
-- [ ] Tutorial on how to play
-- [ ] Music to choose from
-- [ ] Scrolling text pulled from a dictionary
-	- [ ] Dictionary keyed by number of characters
-- [ ] Visual cues:
-	- [ ] Sliding bar with falling rectangles
-- [ ] Error handling:
-	- [ ] 1st draft: P/NP (green/red) for as large a window as possible
-	- [ ] Fail out after 20 misses
-- [ ] Score calculation
-- [ ] Settings for:
-	- [ ] Volume control: music and sound effects
-	- [ ] Keystroke feedback sound effect
-	- [ ] Difficulty: (speed of visual cues only)
-	- [ ] Pause (tap both ctrl keys)
-
-### Upcoming features
-- [ ] Number keys as traditional beatmaps (depicted in the wireframe)
-  This affords the opportunity for a player with more skill to type one-handed
-  words (words with characters on only the left or right side of the keyboard),
-  while holding down and playing number keys
-
-- [ ] Full sentences, including capitalization and punctuation
-There is also the possibility of using full sentences, as in a traditional
-typing game. However, double keystrokes with `shift` must be correctly handled.
-- [ ] Custom audio tracks and beatmaps
+## Features
+[MVP Features and upcoming features listed here](https://github.com/stevenmchoi/rhythm_typer/wiki/Features)
 
 ## Technologies
-The following technologies will be used and considered:
-*	Vanilla JS for grabbing element values
-*	HTML5 canvas for rendering DOM elements
-*	React & Redux for menu/settings options panels
-*	Babel for browser compatibility
-*	Technologies for handling syncing audio with keystrokes and storing the maps
-    *   At first I was at a loss in figuring out what technologies to use
-        regarding this very crucial piece of technology, until I stumbled upon
-        the right Google query and unvealed a wealth of information regarding
-        audio timing. I'll have
-        to do some more research to decide which technology would be of best use
-        for this.
+[Technologies moved here](https://github.com/stevenmchoi/rhythm_typer/wiki/Technologies)
 
 ## Wireframes
 ![main-view](./assets/wireframes/main_view_wireframe.png)
 
 ## Timeline
-### w9d1
-- [ ] Finish canvas
-- [ ] Finish dictionary
-- [ ] Choose audio technology
-- [ ] Play song from canvas w/ mute button
-- [ ] Pause game by tapping both ctrl keys
-- [ ] Sound clips for keystrokes
-
-### w9d2
-- [ ] Type and handle errors for first word in sample song (letters changing)
-- [ ] Change out text for each completed segment
-- [ ] Finish first song w/ final score output
-- [ ] Create visual cues
-
-### w9d3
-- [ ] Create main menu and settings
-- [ ] Tutorial
-
-### w9d4
-- [ ] Create method for creating beatmaps, either manually or randomly generated
+[Schedule listed here](https://github.com/stevenmchoi/rhythm_typer/wiki/Timeline)
