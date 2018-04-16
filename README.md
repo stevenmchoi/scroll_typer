@@ -22,4 +22,6 @@ Luckily, there doesn't seem to be an overlap
 
 ## Wireframes
 
+![main-view](https://github.com/stevenmchoi/rhythm_typer/blob/master/assets/wireframes/main_view_wireframe.png)
+
 ## Timeline
