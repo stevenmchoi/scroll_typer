@@ -86,6 +86,7 @@ The following technologies will be used and considered:
 - [ ] Choose audio technology
 - [ ] Play song from canvas w/ mute button
 - [ ] Pause game by tapping both ctrl keys
+- [ ] Sound clips for keystrokes
 
 ### w9d2
 - [ ] Type and handle errors for first word in sample song (letters changing)
