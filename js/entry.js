@@ -1,3 +1,3 @@
-import { render } from './game';
+import { root } from './root';
 
-document.addEventListener('DOMContentLoaded', render);
+document.addEventListener('DOMContentLoaded', root);
