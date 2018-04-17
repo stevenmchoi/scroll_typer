@@ -1,4 +1,4 @@
-const render = () => {
+export const render = () => {
 	console.log('hello');
 
 	const canvas = document.getElementById('myCanvas');
@@ -15,5 +15,3 @@ const render = () => {
 
 	// keyboard_img = new Image();}
 };
-
-module.exports = render;

@@ -1,3 +1,3 @@
-const { render } = require('./game');
+import { render } from './game';
 
 document.addEventListener('DOMContentLoaded', render);
