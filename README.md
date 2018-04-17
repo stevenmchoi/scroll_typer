@@ -1,6 +1,7 @@
 # Rhythm Typer
 
 ## Overview
+
 Rhythm Typer is simply a rhythm game with typing game elements, overlapping the goals of each.
 
 In a traditional rhythm game, the beatmap, when confined to a keyboard instead
@@ -34,13 +35,17 @@ game forces them to keep playing. Stopping the music itself would also lead to
 choppy gameplay and would be too jarring for rhythm game players.
 
 ## Features
+
 [MVP Features and upcoming features listed here](https://github.com/stevenmchoi/rhythm_typer/wiki/Features)
 
 ## Technologies
+
 [Technologies moved here](https://github.com/stevenmchoi/rhythm_typer/wiki/Technologies)
 
 ## Wireframes
-![main-view](./assets/wireframes/main_view_wireframe.png)
+
+![main-view](./app/assets/wireframes/main_view_wireframe.png)
 
 ## Timeline
+
 [Schedule listed here](https://github.com/stevenmchoi/rhythm_typer/wiki/Timeline)
