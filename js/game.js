@@ -1,6 +1,4 @@
 export const render = () => {
-	console.log('hello');
-
 	const canvas = document.getElementById('myCanvas');
 	const ctx = canvas.getContext('2d');
 
@@ -13,5 +11,9 @@ export const render = () => {
 	ctx.fillText('Hello World!', 460, 400);
 	ctx.closePath();
 
-	// keyboard_img = new Image();}
+	let mac_keys_img = new Image();
+	mac_keys_img.onload = () => {
+		ctx.drawImage(mac_keys_img, 80, 70, 1300, 360, 0, 480, 1195, 319);
+	};
+	mac_keys_img.src = 'app/assets/images/mackeys.png';
 };
