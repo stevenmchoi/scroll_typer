@@ -1,0 +1,30 @@
+{
+	"name": "rhythm_typer",
+	"version": "1.0.0",
+	"description": "## Overview Rhythm Typer is simply a rhythm game with typing game elements, overlapping the goals of each.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"postinstall": "webpack",
+		"webpack": "webpack --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/stevenmchoi/rhythm_typer.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/stevenmchoi/rhythm_typer/issues"
+	},
+	"homepage": "https://github.com/stevenmchoi/rhythm_typer#readme",
+	"dependencies": {
+		"babel-core": "^6.26.0",
+		"babel-loader": "^7.1.4",
+		"babel-preset-env": "^1.6.1",
+		"babel-preset-react": "^6.24.1",
+		"webpack": "^3.4.1"
+	},
+	"devDependencies": {}
+}
