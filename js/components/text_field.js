@@ -21,20 +21,6 @@ function rand_common_word() {
 	];
 }
 
-// sleep, typedKeys, rand_common_word
-function handleTyping(event, rand_word) {
-	typedKeys.push(event.key);
-
-	if (typedKeys.length === rand_word.length) {
-		sleep(200);
-
-		typedKeys = [];
-		rand_word = rand_common_word();
-	}
-
-	return rand_word;
-}
-
 function render_text_box(ctx) {
 	for (let location = start_location; location < 1200; location += 60) {
 		ctx.beginPath();
@@ -76,6 +62,20 @@ function render_text(ctx, rand_word) {
 	}
 }
 
+// sleep, typedKeys, rand_common_word
+function handleTyping(ctx, event, rand_word) {
+	typedKeys.push(event.key);
+
+	if (typedKeys.length === rand_word.length) {
+		sleep(200);
+
+		typedKeys = [];
+		rand_word = rand_common_word();
+	}
+
+	return rand_word;
+}
+
 // rand_common_word, handleTyping
 function render_rand_word(ctx) {
 	let rand_word = rand_common_word();
@@ -87,7 +87,7 @@ function render_rand_word(ctx) {
 
 		render_text_box(ctx);
 
-		rand_word = handleTyping(event, rand_word);
+		rand_word = handleTyping(ctx, event, rand_word);
 
 		render_text(ctx, rand_word);
 	});
@@ -99,6 +99,8 @@ export const text_field = (ctx) => {
 	// detect key pressed
 	// check if key is right or wrong
 	// mark right or wrong
+
+	// TODO: render last character
 	render_text_box(ctx);
 	render_rand_word(ctx);
 };
