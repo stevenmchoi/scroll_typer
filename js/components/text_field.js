@@ -52,8 +52,28 @@ function render_text_box(ctx) {
 
 // fill text
 function render_text(ctx, rand_word) {
-	(ctx.font = '100px Roboto Mono'), '100px Courier', 'monospace';
-	ctx.fillText(rand_word, start_location, 400);
+	let char_location = start_location;
+
+	const color_score = ['black', 'red', 'green'];
+
+	for (let char_idx = 0; char_idx < rand_word.length; char_idx++) {
+		let char = rand_word[char_idx];
+		let score;
+
+		if (typedKeys[char_idx] === char) {
+			score = 2;
+		} else if (typedKeys[char_idx] === undefined) {
+			score = 0;
+		} else {
+			score = 1;
+		}
+
+		(ctx.font = '100px Roboto Mono'), '100px Courier', 'monospace';
+		ctx.fillStyle = color_score[score];
+		ctx.fillText(char, char_location, 400);
+
+		char_location += ctx.measureText(char).width;
+	}
 }
 
 // rand_common_word, handleTyping
