@@ -3,6 +3,7 @@ import { common_more_than_2 } from '../dicts/filtered';
 
 const start_location = 480 + 0.5;
 
+// https://www.sitepoint.com/delay-sleep-pause-wait/
 function sleep(milliseconds) {
 	var start = new Date().getTime();
 	for (var i = 0; i < 1e7; i++) {
