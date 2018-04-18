@@ -1,5 +1,6 @@
 import { dict } from '../dicts/dict';
 import { common_more_than_2 } from '../dicts/filtered';
+import { handleTyping } from '../actions/type_handling';
 
 export const text_field = (ctx) => {
 	const rand_word =
@@ -17,6 +18,10 @@ export const text_field = (ctx) => {
 
 	(ctx.font = '100px Roboto Mono'), '100px Courier', 'monospace';
 	ctx.fillText(rand_word, start_location, 400);
+
+	document.addEventListener('keypress', (event) =>
+		handleTyping(event, rand_word)
+	);
 
 	for (let location = start_location; location < 1200; location += 60) {
 		ctx.beginPath();
