@@ -11,12 +11,12 @@ function refresh() {
 
 	keyboard(ctx);
 
-	canvas.removeEventListener('click', refresh, true);
+	canvas.removeEventListener('click', refresh);
 }
 
 export const root = () => {
 	canvas = document.getElementById('game-layer');
 	ctx = canvas.getContext('2d');
 
-	canvas.addEventListener('click', refresh, true);
+	canvas.addEventListener('click', refresh);
 };
