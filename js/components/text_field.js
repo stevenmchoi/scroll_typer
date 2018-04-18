@@ -1,6 +1,7 @@
 import { dict } from '../dicts/dict';
 import { common_more_than_2 } from '../dicts/filtered';
-// import { handleTyping } from '../actions/type_handling';
+
+const start_location = 480 + 0.5;
 
 function sleep(milliseconds) {
 	var start = new Date().getTime();
@@ -13,11 +14,16 @@ function sleep(milliseconds) {
 
 let typedKeys = [];
 
-function handleTyping(event, rand_word, rand_common_word) {
-	typedKeys.push(event.key);
+// common_more_than_2
+function rand_common_word() {
+	return common_more_than_2[
+		Math.floor(Math.random() * common_more_than_2.length)
+	];
+}
 
-	console.log(typedKeys.join(''));
-	console.log(rand_word);
+// sleep, typedKeys, rand_common_word
+function handleTyping(event, rand_word) {
+	typedKeys.push(event.key);
 
 	if (typedKeys.length === rand_word.length) {
 		sleep(200);
@@ -29,13 +35,7 @@ function handleTyping(event, rand_word, rand_common_word) {
 	return rand_word;
 }
 
-function rand_common_word() {
-	return common_more_than_2[
-		Math.floor(Math.random() * common_more_than_2.length)
-	];
-}
-
-function render_text_box(ctx, start_location) {
+function render_text_box(ctx) {
 	for (let location = start_location; location < 1200; location += 60) {
 		ctx.beginPath();
 		ctx.moveTo(location, 0);
@@ -50,28 +50,35 @@ function render_text_box(ctx, start_location) {
 	ctx.fill();
 }
 
-function render_rand_word(ctx, start_location) {
-	let rand_word = rand_common_word();
-
+// fill text
+function render_text(ctx, rand_word) {
 	(ctx.font = '100px Roboto Mono'), '100px Courier', 'monospace';
 	ctx.fillText(rand_word, start_location, 400);
+}
+
+// rand_common_word, handleTyping
+function render_rand_word(ctx) {
+	let rand_word = rand_common_word();
+
+	render_text(ctx, rand_word);
 
 	document.addEventListener('keypress', (event) => {
 		ctx.clearRect(start_location, 0, 1200, 425 + 0.5);
 
-		render_text_box(ctx, start_location);
+		render_text_box(ctx);
 
-		rand_word = handleTyping(event, rand_word, rand_common_word);
+		rand_word = handleTyping(event, rand_word);
 
-		(ctx.font = '100px Roboto Mono'), '100px Courier', 'monospace';
-		ctx.fillText(rand_word, start_location, 400);
+		render_text(ctx, rand_word);
 	});
 }
 
 export const text_field = (ctx) => {
-	const start_location = 480 + 0.5;
-
-	render_text_box(ctx, start_location);
-
-	render_rand_word(ctx, start_location);
+	// (null on initial step; need rand_word)
+	// listen to key that was pressed
+	// detect key pressed
+	// check if key is right or wrong
+	// mark right or wrong
+	render_text_box(ctx);
+	render_rand_word(ctx);
 };
