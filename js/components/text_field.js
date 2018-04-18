@@ -1,7 +1,7 @@
 import { dict } from '../dicts/dict';
 
 export const text_field = (ctx) => {
-	const start_location = 480;
+	const start_location = 0;
 
 	ctx.beginPath();
 	ctx.lineWidth = 1.0;
