@@ -1,4 +1,4 @@
-export default function renderTextBox(ctx, startLocation) {
+export default function renderTextBox(startLocation) {
 	for (let location = startLocation; location < 1200; location += 60) {
 		ctx.beginPath();
 		ctx.moveTo(location, 0);

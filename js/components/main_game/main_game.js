@@ -18,11 +18,11 @@ export default function mainGame(event) {
 		ctx.strokeStyle = 'black';
 		ctx.strokeRect(0.5, 0.5, 170, 100);
 
-		renderTextField(ctx);
+		renderTextField();
 
 		sampleSong.play();
 
-		keyboard(ctx);
+		keyboard();
 
 		canvas.removeEventListener('click', mainGame);
 

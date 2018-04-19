@@ -1,11 +1,8 @@
 import mainGame from './main_game/main_game';
 
-// let canvas;
-// let ctx;
-
 export default function root() {
-	const canvas = document.getElementById('game-layer');
-	const ctx = canvas.getContext('2d');
+	window.canvas = document.getElementById('game-layer');
+	window.ctx = canvas.getContext('2d');
 
 	ctx.strokeStyle = 'black';
 	ctx.strokeRect(400.5, 300.5, 400, 125);

@@ -17,7 +17,7 @@ function sleep(milliseconds) {
 let typedKeys = [];
 
 // fill text
-function renderText(ctx, randWord) {
+function renderText(randWord) {
 	let charLocation = startLocation;
 
 	const colorScore = ['black', 'red', 'green'];
@@ -43,7 +43,7 @@ function renderText(ctx, randWord) {
 }
 
 // sleep, typedKeys, randCommonWord
-function handleTyping(ctx, event, randWord) {
+function handleTyping(event, randWord) {
 	typedKeys.push(event.key);
 
 	if (typedKeys.length === randWord.length) {
@@ -57,23 +57,23 @@ function handleTyping(ctx, event, randWord) {
 }
 
 // randCommonWord, handleTyping
-function renderRandWord(ctx) {
+function renderRandWord() {
 	let randWord = randCommonWord();
 
-	renderText(ctx, randWord);
+	renderText(randWord);
 
 	document.addEventListener('keypress', (event) => {
 		ctx.clearRect(startLocation, 0, 1200, 425 + 0.5);
 
-		renderTextBox(ctx, startLocation);
+		renderTextBox(startLocation);
 
-		randWord = handleTyping(ctx, event, randWord);
+		randWord = handleTyping(event, randWord);
 
-		renderText(ctx, randWord);
+		renderText(randWord);
 	});
 }
 
-export default (ctx) => {
+export default () => {
 	// (null on initial step; need randWord)
 	// listen to key that was pressed
 	// detect key pressed
@@ -81,6 +81,6 @@ export default (ctx) => {
 	// mark right or wrong
 
 	// TODO: render last character
-	renderTextBox(ctx, startLocation);
-	renderRandWord(ctx);
+	renderTextBox(startLocation);
+	renderRandWord();
 };

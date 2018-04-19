@@ -1,4 +1,4 @@
-export const keyboard = (ctx) => {
+export const keyboard = () => {
 	let mac_keys_img = new Image();
 	mac_keys_img.onload = () => {
 		ctx.drawImage(mac_keys_img, 80, 70, 1300, 360, 0, 480, 1195, 319);

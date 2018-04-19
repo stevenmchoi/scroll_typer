@@ -1,6 +1,6 @@
 import mainGame from '../components/main_game/main_game';
 
-export default function removeMainListeners(ctx) {
+export default function removeMainListeners() {
 	canvas.removeEventListener('click', mainGame);
 	canvas.removeEventListener('click', backButton);
 }
