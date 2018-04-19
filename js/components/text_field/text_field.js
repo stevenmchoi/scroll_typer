@@ -1,5 +1,5 @@
-import { dict } from '../dicts/dict';
-import { commonMoreThan_2 } from '../dicts/filtered';
+import { dict } from '../../dicts/dict';
+import { commonMoreThan_2 } from '../../dicts/filtered';
 
 const startLocation = 480 + 0.5;
 
@@ -71,8 +71,8 @@ function handleTyping(ctx, event, randWord) {
 		sleep(200);
 
 		typedKeys = [];
-		randWord = randCommonWord();
 	}
+	randWord = randCommonWord();
 
 	return randWord;
 }

@@ -1,4 +1,4 @@
-import renderTextField from '../text_field';
+import renderTextField from '../text_field/text_field';
 import { keyboard } from '../keyboard';
 import { sampleSong } from '../../actions/music_handling';
 import backButton from './back_button';
