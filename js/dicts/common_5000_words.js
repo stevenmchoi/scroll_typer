@@ -27,7 +27,6 @@ const common_5000_words = [
 	'from',
 	'that',
 	'not',
-	"n't",
 	'by',
 	'she',
 	'or',
