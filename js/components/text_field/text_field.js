@@ -1,6 +1,6 @@
 import { dict } from '../../dicts/dict';
-import { commonMoreThan_2 } from '../../dicts/filtered';
 import renderTextBox from './render_text_box';
+import randCommonWord from './rand_common_word';
 
 const startLocation = 480 + 0.5;
 
@@ -15,13 +15,6 @@ function sleep(milliseconds) {
 }
 
 let typedKeys = [];
-
-// commonMoreThan_2
-function randCommonWord() {
-	return commonMoreThan_2[
-		Math.floor(Math.random() * commonMoreThan_2.length)
-	];
-}
 
 // fill text
 function renderText(ctx, randWord) {
