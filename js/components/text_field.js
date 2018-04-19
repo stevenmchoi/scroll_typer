@@ -1,7 +1,7 @@
 import { dict } from '../dicts/dict';
-import { common_more_than_2 } from '../dicts/filtered';
+import { commonMoreThan_2 } from '../dicts/filtered';
 
-const start_location = 480 + 0.5;
+const startLocation = 480 + 0.5;
 
 // https://www.sitepoint.com/delay-sleep-pause-wait/
 function sleep(milliseconds) {
@@ -15,15 +15,15 @@ function sleep(milliseconds) {
 
 let typedKeys = [];
 
-// common_more_than_2
-function rand_common_word() {
-	return common_more_than_2[
-		Math.floor(Math.random() * common_more_than_2.length)
+// commonMoreThan_2
+function randCommonWord() {
+	return commonMoreThan_2[
+		Math.floor(Math.random() * commonMoreThan_2.length)
 	];
 }
 
-function render_text_box(ctx) {
-	for (let location = start_location; location < 1200; location += 60) {
+function renderTextBox(ctx) {
+	for (let location = startLocation; location < 1200; location += 60) {
 		ctx.beginPath();
 		ctx.moveTo(location, 0);
 		ctx.lineTo(location, 425);
@@ -32,76 +32,76 @@ function render_text_box(ctx) {
 	}
 
 	ctx.strokeStyle = 'black';
-	ctx.strokeRect(start_location, 300.5, 1200, 125);
+	ctx.strokeRect(startLocation, 300.5, 1200, 125);
 	ctx.fillStyle = '#000';
 	ctx.fill();
 }
 
 // fill text
-function render_text(ctx, rand_word) {
-	let char_location = start_location;
+function renderText(ctx, randWord) {
+	let charLocation = startLocation;
 
-	const color_score = ['black', 'red', 'green'];
+	const colorScore = ['black', 'red', 'green'];
 
-	for (let char_idx = 0; char_idx < rand_word.length; char_idx++) {
-		let char = rand_word[char_idx];
+	for (let charIdx = 0; charIdx < randWord.length; charIdx++) {
+		let char = randWord[charIdx];
 		let score;
 
-		if (typedKeys[char_idx] === char) {
+		if (typedKeys[charIdx] === char) {
 			score = 2;
-		} else if (typedKeys[char_idx] === undefined) {
+		} else if (typedKeys[charIdx] === undefined) {
 			score = 0;
 		} else {
 			score = 1;
 		}
 
 		(ctx.font = '100px Roboto Mono'), '100px Courier', 'monospace';
-		ctx.fillStyle = color_score[score];
-		ctx.fillText(char, char_location, 400);
+		ctx.fillStyle = colorScore[score];
+		ctx.fillText(char, charLocation, 400);
 
-		char_location += ctx.measureText(char).width;
+		charLocation += ctx.measureText(char).width;
 	}
 }
 
-// sleep, typedKeys, rand_common_word
-function handleTyping(ctx, event, rand_word) {
+// sleep, typedKeys, randCommonWord
+function handleTyping(ctx, event, randWord) {
 	typedKeys.push(event.key);
 
-	if (typedKeys.length === rand_word.length) {
+	if (typedKeys.length === randWord.length) {
 		sleep(200);
 
 		typedKeys = [];
-		rand_word = rand_common_word();
+		randWord = randCommonWord();
 	}
 
-	return rand_word;
+	return randWord;
 }
 
-// rand_common_word, handleTyping
-function render_rand_word(ctx) {
-	let rand_word = rand_common_word();
+// randCommonWord, handleTyping
+function renderRandWord(ctx) {
+	let randWord = randCommonWord();
 
-	render_text(ctx, rand_word);
+	renderText(ctx, randWord);
 
 	document.addEventListener('keypress', (event) => {
-		ctx.clearRect(start_location, 0, 1200, 425 + 0.5);
+		ctx.clearRect(startLocation, 0, 1200, 425 + 0.5);
 
-		render_text_box(ctx);
+		renderTextBox(ctx);
 
-		rand_word = handleTyping(ctx, event, rand_word);
+		randWord = handleTyping(ctx, event, randWord);
 
-		render_text(ctx, rand_word);
+		renderText(ctx, randWord);
 	});
 }
 
-export const text_field = (ctx) => {
-	// (null on initial step; need rand_word)
+export const renderTextField = (ctx) => {
+	// (null on initial step; need randWord)
 	// listen to key that was pressed
 	// detect key pressed
 	// check if key is right or wrong
 	// mark right or wrong
 
 	// TODO: render last character
-	render_text_box(ctx);
-	render_rand_word(ctx);
+	renderTextBox(ctx);
+	renderRandWord(ctx);
 };

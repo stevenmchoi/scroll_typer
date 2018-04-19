@@ -1,4 +1,4 @@
-const right_handed_words = [
+const rightHandedWords = [
 	'hi',
 	'hili',
 	'hill',
@@ -447,4 +447,4 @@ const right_handed_words = [
 	'yupon',
 ];
 
-module.exports = right_handed_words;
+module.exports = rightHandedWords;

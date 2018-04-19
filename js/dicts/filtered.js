@@ -1,33 +1,33 @@
-const common_5000_words = require('./common_5000_words');
-const left_handed = require('./left_handed');
-const right_handed_words = require('./right_handed');
+const common_5000Words = require('./common_5000_words');
+const leftHanded = require('./left_handed');
+const rightHandedWords = require('./right_handed');
 
-function more_than_2(wordsArr) {
+function moreThan_2(wordsArr) {
 	return wordsArr.filter((word) => {
 		return word.length > 2;
 	});
 }
 
-function more_than(wordsArr, num) {
+function moreThan(wordsArr, num) {
 	return wordsArr.filter((word) => {
 		return word.length > num;
 	});
 }
 
-const common_more_than_2 = more_than_2(common_5000_words);
+const commonMoreThan_2 = moreThan_2(common_5000Words);
 
-const left_more_than_2 = more_than_2(left_handed.left_handed_words);
+const leftMoreThan_2 = moreThan_2(leftHanded.leftHandedWords);
 
-const right_more_than_2 = more_than_2(right_handed_words);
+const rightMoreThan_2 = moreThan_2(rightHandedWords);
 
-const one_handed_words = left_more_than_2.concat(right_more_than_2);
+const oneHandedWords = leftMoreThan_2.concat(rightMoreThan_2);
 
-const one_handed_more_than_3 = more_than(one_handed_words, 3);
+const oneHandedMoreThan_3 = moreThan(oneHandedWords, 3);
 
 module.exports = exports = {
-	common_more_than_2,
-	left_more_than_2,
-	right_more_than_2,
-	one_handed_words,
-	one_handed_more_than_3,
+	commonMoreThan_2,
+	leftMoreThan_2,
+	rightMoreThan_2,
+	oneHandedWords,
+	oneHandedMoreThan_3,
 };

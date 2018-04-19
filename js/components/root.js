@@ -1,6 +1,6 @@
-import { main_game } from './main_game';
+import mainGame from './main_game';
 
-export const root = () => {
+export default () => {
 	const canvas = document.getElementById('game-layer');
 	const ctx = canvas.getContext('2d');
 
@@ -12,5 +12,5 @@ export const root = () => {
 	(ctx.font = '50px Roboto Mono'), '50px Courier', 'monospace';
 	ctx.fillText('Future Retro', 420.5, 380.5);
 
-	canvas.addEventListener('click', main_game);
+	canvas.addEventListener('click', mainGame);
 };

@@ -1,7 +1,7 @@
 const path = require('path');
 import { Howl, Howler } from 'howler';
 
-export const sample_song = new Howl({
+export const sampleSong = new Howl({
 	src: [
 		path.resolve(
 			__dirname,

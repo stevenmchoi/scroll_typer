@@ -1,4 +1,4 @@
-exports.keyboard_3_letter_words = [
+exports.keyboard_3LetterWords = [
 	'aas',
 	'aba',
 	'abs',
@@ -169,7 +169,7 @@ exports.keyboard_3_letter_words = [
 	'zee',
 ];
 
-exports.keyboard_4_letter_words = [
+exports.keyboard_4LetterWords = [
 	'abas',
 	'abba',
 	'abbe',
@@ -564,7 +564,7 @@ exports.keyboard_4_letter_words = [
 	'zeta',
 ];
 
-exports.keyboard_5_letter_words = [
+exports.keyboard_5LetterWords = [
 	'abaca',
 	'abaft',
 	'abase',
@@ -1166,7 +1166,7 @@ exports.keyboard_5_letter_words = [
 	'zetas',
 ];
 
-exports.keyboard_6_letter_words = [
+exports.keyboard_6LetterWords = [
 	'abacas',
 	'abased',
 	'abaser',
@@ -1904,7 +1904,7 @@ exports.keyboard_6_letter_words = [
 	'zester',
 ];
 
-exports.keyboard_7_letter_words = [
+exports.keyboard_7LetterWords = [
 	'abasers',
 	'abaters',
 	'abetted',
@@ -2558,7 +2558,7 @@ exports.keyboard_7_letter_words = [
 	'zesters',
 ];
 
-exports.keyboard_8_letter_words = [
+exports.keyboard_8LetterWords = [
 	'abbesses',
 	'abetters',
 	'abfarads',
@@ -3028,7 +3028,7 @@ exports.keyboard_8_letter_words = [
 	'zareebas',
 ];
 
-exports.keyboard_9_letter_words = [
+exports.keyboard_9LetterWords = [
 	'aberrated',
 	'abreacted',
 	'abscessed',
@@ -3260,7 +3260,7 @@ exports.keyboard_9_letter_words = [
 	'zebrasses',
 ];
 
-exports.keyboard_10_letter_words = [
+exports.keyboard_10LetterWords = [
 	'abstracted',
 	'abstracter',
 	'addressees',
@@ -3338,7 +3338,7 @@ exports.keyboard_10_letter_words = [
 	'waterweeds',
 ];
 
-exports.keyboard_11_letter_words = [
+exports.keyboard_11LetterWords = [
 	'abstracters',
 	'abstractest',
 	'aftereffect',
@@ -3378,7 +3378,7 @@ exports.keyboard_11_letter_words = [
 	'watercrafts',
 ];
 
-exports.keyboard_12_letter_words = [
+exports.keyboard_12LetterWords = [
 	'aftereffects',
 	'decerebrated',
 	'decerebrates',
@@ -3399,19 +3399,19 @@ exports.keyboard_12_letter_words = [
 	'watercresses',
 ];
 
-exports.keyboard_14_letter_words = ['sweaterdresses'];
+exports.keyboard_14LetterWords = ['sweaterdresses'];
 
-exports.left_handed_words = exports.keyboard_3_letter_words.concat(
-	exports.keyboard_4_letter_words,
-	exports.keyboard_5_letter_words,
-	exports.keyboard_6_letter_words,
-	exports.keyboard_7_letter_words,
-	exports.keyboard_8_letter_words,
-	exports.keyboard_9_letter_words,
-	exports.keyboard_10_letter_words,
-	exports.keyboard_11_letter_words,
-	exports.keyboard_12_letter_words,
-	exports.keyboard_14_letter_words
+exports.leftHandedWords = exports.keyboard_3LetterWords.concat(
+	exports.keyboard_4LetterWords,
+	exports.keyboard_5LetterWords,
+	exports.keyboard_6LetterWords,
+	exports.keyboard_7LetterWords,
+	exports.keyboard_8LetterWords,
+	exports.keyboard_9LetterWords,
+	exports.keyboard_10LetterWords,
+	exports.keyboard_11LetterWords,
+	exports.keyboard_12LetterWords,
+	exports.keyboard_14LetterWords
 );
 
 module.exports = exports;

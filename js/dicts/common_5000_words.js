@@ -1,4 +1,4 @@
-const common_5000_words = [
+const common_5000Words = [
 	'the',
 	'be',
 	'and',
@@ -4986,4 +4986,4 @@ const common_5000_words = [
 	'till',
 ];
 
-module.exports = common_5000_words;
+module.exports = common_5000Words;

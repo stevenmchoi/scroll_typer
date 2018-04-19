@@ -1,3 +1,3 @@
-import { root } from './components/root';
+import root from './components/root';
 
 document.addEventListener('DOMContentLoaded', root);
