@@ -1,5 +1,6 @@
 import { dict } from '../../dicts/dict';
 import { commonMoreThan_2 } from '../../dicts/filtered';
+import renderTextBox from './render_text_box';
 
 const startLocation = 480 + 0.5;
 
@@ -20,21 +21,6 @@ function randCommonWord() {
 	return commonMoreThan_2[
 		Math.floor(Math.random() * commonMoreThan_2.length)
 	];
-}
-
-function renderTextBox(ctx) {
-	for (let location = startLocation; location < 1200; location += 60) {
-		ctx.beginPath();
-		ctx.moveTo(location, 0);
-		ctx.lineTo(location, 425);
-		ctx.strokeStyle = '#ccc';
-		ctx.stroke();
-	}
-
-	ctx.strokeStyle = 'black';
-	ctx.strokeRect(startLocation, 300.5, 1200, 125);
-	ctx.fillStyle = '#000';
-	ctx.fill();
 }
 
 // fill text
@@ -71,8 +57,8 @@ function handleTyping(ctx, event, randWord) {
 		sleep(200);
 
 		typedKeys = [];
+		randWord = randCommonWord();
 	}
-	randWord = randCommonWord();
 
 	return randWord;
 }
@@ -86,7 +72,7 @@ function renderRandWord(ctx) {
 	document.addEventListener('keypress', (event) => {
 		ctx.clearRect(startLocation, 0, 1200, 425 + 0.5);
 
-		renderTextBox(ctx);
+		renderTextBox(ctx, startLocation);
 
 		randWord = handleTyping(ctx, event, randWord);
 
@@ -102,6 +88,6 @@ export default (ctx) => {
 	// mark right or wrong
 
 	// TODO: render last character
-	renderTextBox(ctx);
+	renderTextBox(ctx, startLocation);
 	renderRandWord(ctx);
 };
