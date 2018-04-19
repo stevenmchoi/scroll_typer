@@ -1,7 +1,7 @@
 import renderTextField from '../text_field';
 import { keyboard } from '../keyboard';
 import { sampleSong } from '../../actions/music_handling';
-import root from '../root';
+import backButton from './back_button';
 
 export default function mainGame(event) {
 	const canvas = document.getElementById('game-layer');
@@ -26,17 +26,6 @@ export default function mainGame(event) {
 
 		canvas.removeEventListener('click', mainGame);
 
-		canvas.addEventListener('click', (event) => {
-			const x_coord = event.offsetX;
-			const y_coord = event.offsetY;
-
-			if (x_coord > 0 && x_coord < 200 && y_coord > 0 && y_coord < 200) {
-				ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-				sampleSong.stop();
-
-				root();
-			}
-		});
+		canvas.addEventListener('click', backButton);
 	}
 }
