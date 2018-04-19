@@ -1,7 +1,7 @@
 import { text_field } from './text_field';
 import { keyboard } from './keyboard';
 import { sample_song } from '../actions/music_handling';
-import { root } from '../root';
+import { root } from './root';
 
 export function main_game(event) {
 	const canvas = document.getElementById('game-layer');

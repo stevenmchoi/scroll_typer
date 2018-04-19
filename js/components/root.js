@@ -1,4 +1,4 @@
-import { main_game } from './components/main_game';
+import { main_game } from './main_game';
 
 export const root = () => {
 	const canvas = document.getElementById('game-layer');
