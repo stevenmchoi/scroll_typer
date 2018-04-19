@@ -94,7 +94,7 @@ function renderRandWord(ctx) {
 	});
 }
 
-export const renderTextField = (ctx) => {
+export default (ctx) => {
 	// (null on initial step; need randWord)
 	// listen to key that was pressed
 	// detect key pressed

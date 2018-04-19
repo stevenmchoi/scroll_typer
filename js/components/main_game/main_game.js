@@ -1,7 +1,7 @@
-import { renderTextField } from './text_field';
-import { keyboard } from './keyboard';
-import { sampleSong } from '../actions/music_handling';
-import root from './root';
+import renderTextField from '../text_field';
+import { keyboard } from '../keyboard';
+import { sampleSong } from '../../actions/music_handling';
+import root from '../root';
 
 export default function mainGame(event) {
 	const canvas = document.getElementById('game-layer');

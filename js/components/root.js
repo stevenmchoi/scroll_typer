@@ -1,4 +1,4 @@
-import mainGame from './main_game';
+import mainGame from './main_game/main_game';
 
 export default () => {
 	const canvas = document.getElementById('game-layer');
