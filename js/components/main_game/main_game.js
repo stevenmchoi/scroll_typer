@@ -4,9 +4,6 @@ import { sampleSong } from '../../actions/music_handling';
 import backButton from './back_button';
 
 export default function mainGame(event) {
-	const canvas = document.getElementById('game-layer');
-	const ctx = canvas.getContext('2d');
-
 	const x_coord = event.offsetX;
 	const y_coord = event.offsetY;
 

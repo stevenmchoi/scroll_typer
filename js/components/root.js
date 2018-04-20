@@ -9,11 +9,15 @@ export default function root() {
 	ctx.fillStyle = '#000';
 	ctx.fill();
 
+	document.body.style.cursor = 'wait';
+
 	// TODO: Someday, figure out how backup fonts worked in JS
 	document.fonts.load('50px Roboto Mono').then(() => {
 		ctx.font = '50px Roboto Mono';
 		ctx.fillText('Future Retro', 420.5, 380.5);
 
 		canvas.addEventListener('click', mainGame);
+
+		document.body.style.cursor = 'default';
 	});
 }
