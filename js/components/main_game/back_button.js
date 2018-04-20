@@ -1,4 +1,4 @@
-import { sampleSong } from '../../actions/music_handling';
+import { sampleSong } from '../../actions/song_handling';
 import root from '../root';
 
 export default (event) => {

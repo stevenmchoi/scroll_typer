@@ -1,8 +1,8 @@
 import renderTextField from '../text_field/text_field';
 import { keyboard } from '../keyboard';
-import { sampleSong } from '../../actions/music_handling';
 import backButton from './back_button';
 import removeAllListeners from '../../actions/remove_all_listeners';
+import handleBeats from '../../actions/beat_handling';
 
 export default function mainGame(event) {
 	removeAllListeners();
@@ -23,8 +23,6 @@ export default function mainGame(event) {
 
 		renderTextField();
 
-		sampleSong.play();
-
-		canvas.removeEventListener('click', mainGame);
+		handleBeats();
 	}
 }
