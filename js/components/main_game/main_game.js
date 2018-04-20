@@ -2,8 +2,11 @@ import renderTextField from '../text_field/text_field';
 import { keyboard } from '../keyboard';
 import { sampleSong } from '../../actions/music_handling';
 import backButton from './back_button';
+import removeAllListeners from '../../actions/remove_all_listeners';
 
 export default function mainGame(event) {
+	removeAllListeners();
+
 	const x_coord = event.offsetX;
 	const y_coord = event.offsetY;
 

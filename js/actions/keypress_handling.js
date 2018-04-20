@@ -12,7 +12,7 @@ function sleep(milliseconds) {
 	}
 }
 
-// sleep, typedKeys
+// sleep
 function handleTyping(event) {
 	typedKeys.push(event.key);
 

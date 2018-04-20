@@ -1,8 +1,11 @@
 import mainGame from './main_game/main_game';
+import removeAllListeners from '../actions/remove_all_listeners';
 
 export default function root() {
 	window.canvas = document.getElementById('game-layer');
 	window.ctx = canvas.getContext('2d');
+
+	removeAllListeners();
 
 	ctx.strokeStyle = 'black';
 	ctx.strokeRect(400.5, 300.5, 400, 125);
