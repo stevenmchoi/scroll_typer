@@ -1,5 +1,5 @@
-export default function renderTextBox(startLocation) {
-	for (let location = startLocation; location < 1200; location += 60) {
+export default function renderTextBox() {
+	for (let location = textStartLocation; location < 1200; location += 60) {
 		ctx.beginPath();
 		ctx.moveTo(location, 0);
 		ctx.lineTo(location, 425);
@@ -8,7 +8,7 @@ export default function renderTextBox(startLocation) {
 	}
 
 	ctx.strokeStyle = 'black';
-	ctx.strokeRect(startLocation, 300.5, 1200, 125);
+	ctx.strokeRect(textStartLocation, 300.5, 1200, 125);
 	ctx.fillStyle = '#000';
 	ctx.fill();
 }
