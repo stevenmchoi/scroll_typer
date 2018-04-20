@@ -2,8 +2,6 @@ import { dict } from '../../dicts/dict';
 import renderTextBox from './render_text_box';
 import randCommonWord from './rand_common_word';
 
-const startLocation = 360 + 0.5;
-
 // https://www.sitepoint.com/delay-sleep-pause-wait/
 function sleep(milliseconds) {
 	var start = new Date().getTime();
@@ -15,7 +13,7 @@ function sleep(milliseconds) {
 }
 
 // fill text
-function renderText(randWord) {
+function renderText(randWord, startLocation) {
 	let charLocation = startLocation;
 
 	const colorScore = ['black', 'red', 'green'];
@@ -40,7 +38,7 @@ function renderText(randWord) {
 	}
 }
 
-// sleep, typedKeys, randCommonWord
+// sleep, typedKeys
 function handleTyping(event, randWord) {
 	typedKeys.push(event.key);
 
@@ -54,11 +52,11 @@ function handleTyping(event, randWord) {
 	return randWord;
 }
 
-// randCommonWord, handleTyping
-function renderRandWord() {
+// handleTyping
+function renderRandWord(startLocation) {
 	let randWord = randCommonWord();
 
-	renderText(randWord);
+	renderText(randWord, startLocation);
 
 	document.addEventListener('keypress', (event) => {
 		ctx.clearRect(startLocation, 0, 1200, 425 + 0.5);
@@ -67,12 +65,14 @@ function renderRandWord() {
 
 		randWord = handleTyping(event, randWord);
 
-		renderText(randWord);
+		renderText(randWord, startLocation);
 	});
 }
 
 export default () => {
 	window.typedKeys = [];
+	const startLocation = 360 + 0.5;
+
 	// (null on initial step; need randWord)
 	// listen to key that was pressed
 	// detect key pressed
@@ -81,5 +81,5 @@ export default () => {
 
 	// TODO: render last character
 	renderTextBox(startLocation);
-	renderRandWord();
+	renderRandWord(startLocation);
 };
