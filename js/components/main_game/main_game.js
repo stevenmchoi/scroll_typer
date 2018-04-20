@@ -13,7 +13,8 @@ export default function mainGame(event) {
 		ctx.font = '50px Roboto Mono';
 		ctx.fillText('Back', 25, 70);
 		ctx.strokeStyle = 'black';
-		ctx.strokeRect(0.5, 0.5, 170, 100);
+		ctx.strokeRect(-0.5, -0.5, 170, 100);
+		canvas.addEventListener('click', backButton);
 
 		renderTextField();
 
@@ -22,7 +23,5 @@ export default function mainGame(event) {
 		keyboard();
 
 		canvas.removeEventListener('click', mainGame);
-
-		canvas.addEventListener('click', backButton);
 	}
 }

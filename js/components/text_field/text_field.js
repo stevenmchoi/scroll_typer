@@ -14,8 +14,6 @@ function sleep(milliseconds) {
 	}
 }
 
-let typedKeys = [];
-
 // fill text
 function renderText(randWord) {
 	let charLocation = startLocation;
@@ -74,6 +72,7 @@ function renderRandWord() {
 }
 
 export default () => {
+	window.typedKeys = [];
 	// (null on initial step; need randWord)
 	// listen to key that was pressed
 	// detect key pressed
