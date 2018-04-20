@@ -1,4 +1,6 @@
 import randCommonWord from '../components/text_field/rand_common_word';
+import renderText from '../components/text_field/render_text';
+import renderTextBox from '../components/text_field/render_text_box';
 
 // https://www.sitepoint.com/delay-sleep-pause-wait/
 function sleep(milliseconds) {
@@ -10,34 +12,8 @@ function sleep(milliseconds) {
 	}
 }
 
-// fill text
-function renderText(randWord) {
-	let charLocation = textStartLocation;
-
-	const colorScore = ['black', 'red', 'green'];
-
-	for (let charIdx = 0; charIdx < randWord.length; charIdx++) {
-		let char = randWord[charIdx];
-		let score;
-
-		if (typedKeys[charIdx] === char) {
-			score = 2;
-		} else if (typedKeys[charIdx] === undefined) {
-			score = 0;
-		} else {
-			score = 1;
-		}
-
-		ctx.font = '100px Roboto Mono';
-		ctx.fillStyle = colorScore[score];
-		ctx.fillText(char, charLocation, 400);
-
-		charLocation += ctx.measureText(char).width;
-	}
-}
-
 // sleep, typedKeys
-function handleTyping(event, randWord) {
+function handleTyping(event) {
 	typedKeys.push(event.key);
 
 	if (typedKeys.length === randWord.length) {
@@ -56,7 +32,7 @@ export default function handleKeypress(event) {
 
 	renderTextBox();
 
-	randWord = handleTyping(event, randWord);
+	randWord = handleTyping(event);
 
-	renderText(randWord);
+	renderText();
 }

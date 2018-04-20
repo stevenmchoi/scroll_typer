@@ -12,4 +12,6 @@ export const sampleSong = new Howl({
 			'01_Future_Retro.mp3'
 		),
 	],
+	volume: 0.01,
+	// onend: display score, cancel clicking, and allow only to go back
 });

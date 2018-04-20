@@ -16,11 +16,11 @@ export default function mainGame(event) {
 		ctx.strokeRect(-0.5, -0.5, 170, 100);
 		canvas.addEventListener('click', backButton);
 
+		keyboard();
+
 		renderTextField();
 
 		sampleSong.play();
-
-		keyboard();
 
 		canvas.removeEventListener('click', mainGame);
 	}
