@@ -2,7 +2,7 @@ import { dict } from '../../dicts/dict';
 import renderTextBox from './render_text_box';
 import randCommonWord from './rand_common_word';
 
-const startLocation = 480 + 0.5;
+const startLocation = 360 + 0.5;
 
 // https://www.sitepoint.com/delay-sleep-pause-wait/
 function sleep(milliseconds) {
@@ -34,7 +34,7 @@ function renderText(randWord) {
 			score = 1;
 		}
 
-		(ctx.font = '100px Roboto Mono'), '100px Courier', 'monospace';
+		ctx.font = '100px Roboto Mono';
 		ctx.fillStyle = colorScore[score];
 		ctx.fillText(char, charLocation, 400);
 

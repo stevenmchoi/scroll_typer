@@ -9,8 +9,11 @@ export default function root() {
 	ctx.fillStyle = '#000';
 	ctx.fill();
 
-	(ctx.font = '50px Roboto Mono'), '50px Courier', 'monospace';
-	ctx.fillText('Future Retro', 420.5, 380.5);
+	// TODO: Someday, figure out how backup fonts worked in JS
+	document.fonts.load('50px Roboto Mono').then(() => {
+		ctx.font = '50px Roboto Mono';
+		ctx.fillText('Future Retro', 420.5, 380.5);
 
-	canvas.addEventListener('click', mainGame);
+		canvas.addEventListener('click', mainGame);
+	});
 }
