@@ -13,7 +13,8 @@
 		"postinstall": "webpack",
 		"webpack": "webpack --watch",
 		"livereload": "livereload .",
-		"start": "http-server -c-1",
+		"server": "http-server -c-1",
+		"start": "node js/entry.js",
 		"dev": "concurrently \"npm run webpack\" \"npm run server\""
 	},
 	"repository": {
