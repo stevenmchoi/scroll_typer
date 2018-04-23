@@ -14,7 +14,7 @@
 		"webpack": "webpack --watch",
 		"livereload": "livereload .",
 		"server": "http-server -c-1",
-		"start": "node js/entry.js",
+		"start": "open index.html",
 		"dev": "concurrently \"npm run webpack\" \"npm run server\""
 	},
 	"repository": {
