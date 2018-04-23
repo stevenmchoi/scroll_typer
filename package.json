@@ -13,7 +13,7 @@
 		"postinstall": "webpack",
 		"webpack": "webpack --watch",
 		"server": "http-server -c-1",
-		"start": "node app/assets/javascripts/bundle.js",
+		"start": "open index.html",
 		"dev": "concurrently \"npm run webpack\" \"npm run server\""
 	},
 	"repository": {
