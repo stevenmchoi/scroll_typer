@@ -111,10 +111,6 @@ var _main_game = __webpack_require__(2);
 
 var _main_game2 = _interopRequireDefault(_main_game);
 
-var _remove_all_listeners = __webpack_require__(0);
-
-var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function root() {
@@ -129,16 +125,7 @@ function root() {
 	document.body.style.cursor = "wait";
 
 	// TODO: Someday, figure out how backup fonts worked in JS
-	document.fonts.load("50px Roboto Mono").then(function () {
-		(0, _remove_all_listeners2.default)();
-
-		ctx.font = "50px Roboto Mono";
-		ctx.fillText("Future Retro", 420.5, 380.5);
-
-		canvas.addEventListener("click", _main_game2.default);
-
-		document.body.style.cursor = "default";
-	});
+	document.fonts.load("50px Roboto Mono").then(_main_game2.default);
 }
 
 /***/ }),
@@ -174,30 +161,40 @@ var _beat_handling2 = _interopRequireDefault(_beat_handling);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function mainGame(event) {
-	var x_coord = event.offsetX;
-	var y_coord = event.offsetY;
+	(0, _remove_all_listeners2.default)();
 
-	var song1 = document.getElementById("song1");
-	song1.volume = 0.3;
+	ctx.font = "50px Roboto Mono";
+	ctx.fillText("Future Retro", 420.5, 380.5);
 
-	if (x_coord > 400 && x_coord < 800 && y_coord > 300 && y_coord < 425) {
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		(0, _remove_all_listeners2.default)();
+	document.body.style.cursor = "default";
 
-		ctx.font = "50px Roboto Mono";
-		ctx.fillText("Back", 25, 70);
-		ctx.strokeStyle = "black";
-		ctx.strokeRect(-0.5, -0.5, 170, 100);
-		canvas.addEventListener("click", _back_button2.default);
+	canvas.addEventListener("click", function (event) {
+		var x_coord = event.offsetX;
+		var y_coord = event.offsetY;
 
-		song1.play();
+		var song1 = document.getElementById("song1");
+		song1.volume = 0.3;
 
-		(0, _keyboard.keyboard)();
+		// https://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/
+		if (x_coord > 400 && x_coord < 800 && y_coord > 300 && y_coord < 425) {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			(0, _remove_all_listeners2.default)();
 
-		(0, _text_field2.default)();
+			ctx.font = "50px Roboto Mono";
+			ctx.fillText("Back", 25, 70);
+			ctx.strokeStyle = "black";
+			ctx.strokeRect(-0.5, -0.5, 170, 100);
+			canvas.addEventListener("click", _back_button2.default);
 
-		(0, _beat_handling2.default)();
-	}
+			song1.play();
+
+			(0, _keyboard.keyboard)();
+
+			(0, _text_field2.default)();
+
+			(0, _beat_handling2.default)();
+		}
+	});
 }
 
 /***/ }),

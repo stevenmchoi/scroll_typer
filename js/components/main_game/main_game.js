@@ -5,28 +5,38 @@ import removeAllListeners from "../../actions/remove_all_listeners";
 import handleBeats from "../../actions/beat_handling";
 
 export default function mainGame(event) {
-	const x_coord = event.offsetX;
-	const y_coord = event.offsetY;
+	removeAllListeners();
 
-	const song1 = document.getElementById("song1");
-	song1.volume = 0.3;
+	ctx.font = "50px Roboto Mono";
+	ctx.fillText("Future Retro", 420.5, 380.5);
 
-	if (x_coord > 400 && x_coord < 800 && y_coord > 300 && y_coord < 425) {
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		removeAllListeners();
+	document.body.style.cursor = "default";
 
-		ctx.font = "50px Roboto Mono";
-		ctx.fillText("Back", 25, 70);
-		ctx.strokeStyle = "black";
-		ctx.strokeRect(-0.5, -0.5, 170, 100);
-		canvas.addEventListener("click", backButton);
+	canvas.addEventListener("click", event => {
+		const x_coord = event.offsetX;
+		const y_coord = event.offsetY;
 
-		song1.play();
+		const song1 = document.getElementById("song1");
+		song1.volume = 0.3;
 
-		keyboard();
+		// https://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/
+		if (x_coord > 400 && x_coord < 800 && y_coord > 300 && y_coord < 425) {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			removeAllListeners();
 
-		renderTextField();
+			ctx.font = "50px Roboto Mono";
+			ctx.fillText("Back", 25, 70);
+			ctx.strokeStyle = "black";
+			ctx.strokeRect(-0.5, -0.5, 170, 100);
+			canvas.addEventListener("click", backButton);
 
-		handleBeats();
-	}
+			song1.play();
+
+			keyboard();
+
+			renderTextField();
+
+			handleBeats();
+		}
+	});
 }
