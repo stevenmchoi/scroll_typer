@@ -332,6 +332,7 @@ function renderText() {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+exports.default = backButton;
 
 var _root = __webpack_require__(1);
 
@@ -344,21 +345,17 @@ var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import { song1 } from "../../actions/song_handling";
-exports.default = function (event) {
-	var x_coord = event.offsetX;
-	var y_coord = event.offsetY;
+function backButton() {
 	var song1 = document.getElementById("song1");
 
-	if (x_coord > 0 && x_coord < 170 && y_coord > 0 && y_coord < 100) {
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		(0, _remove_all_listeners2.default)();
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	(0, _remove_all_listeners2.default)();
 
-		song1.pause();
-		song1.currentTime = 0;
+	song1.pause();
+	song1.currentTime = 0;
 
-		(0, _root2.default)();
-	}
-};
+	(0, _root2.default)();
+}
 
 /***/ }),
 /* 8 */
@@ -626,6 +623,10 @@ var _back_button = __webpack_require__(7);
 
 var _back_button2 = _interopRequireDefault(_back_button);
 
+var _in_button = __webpack_require__(24);
+
+var _in_button2 = _interopRequireDefault(_in_button);
+
 var _remove_all_listeners = __webpack_require__(0);
 
 var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
@@ -637,17 +638,34 @@ var _beat_handling2 = _interopRequireDefault(_beat_handling);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function startSong() {
+	var _ctx;
+
 	var song1 = document.getElementById("song1");
 	song1.volume = 0.3;
 
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	(0, _remove_all_listeners2.default)();
 
+	// Render back button
+	var back_dimens = [-0.5, -0.5, 170, 100];
 	ctx.font = "50px Roboto Mono";
 	ctx.fillText("Back", 25, 70);
 	ctx.strokeStyle = "black";
-	ctx.strokeRect(-0.5, -0.5, 170, 100);
-	canvas.addEventListener("click", _back_button2.default);
+	(_ctx = ctx).strokeRect.apply(_ctx, back_dimens);
+
+	canvas.addEventListener("mousemove", function (event) {
+		if ((0, _in_button2.default)(back_dimens, event)) {
+			document.body.style.cursor = "pointer";
+		} else {
+			document.body.style.cursor = "default";
+		}
+	});
+
+	canvas.addEventListener("click", function (event) {
+		if ((0, _in_button2.default)(back_dimens, event)) {
+			(0, _back_button2.default)();
+		}
+	});
 
 	song1.play();
 
