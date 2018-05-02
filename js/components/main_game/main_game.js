@@ -1,6 +1,6 @@
 import removeAllListeners from "../../actions/remove_all_listeners";
 import startSong from "./start_song";
-import inButton from "../../actions/in_button";
+import inButtonListener from "../../actions/in_button_listener";
 
 export default function mainGame() {
 	removeAllListeners();
@@ -18,17 +18,5 @@ export default function mainGame() {
 
 	document.body.style.cursor = "default";
 
-	canvas.addEventListener("mousemove", event => {
-		if (inButton(start_dimens, event)) {
-			document.body.style.cursor = "pointer";
-		} else {
-			document.body.style.cursor = "default";
-		}
-	});
-
-	canvas.addEventListener("click", event => {
-		if (inButton(start_dimens, event)) {
-			startSong();
-		}
-	});
+	inButtonListener(start_dimens, event, startSong);
 }

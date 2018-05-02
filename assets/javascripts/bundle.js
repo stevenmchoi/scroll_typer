@@ -150,9 +150,9 @@ var _start_song = __webpack_require__(23);
 
 var _start_song2 = _interopRequireDefault(_start_song);
 
-var _in_button = __webpack_require__(24);
+var _in_button_listener = __webpack_require__(25);
 
-var _in_button2 = _interopRequireDefault(_in_button);
+var _in_button_listener2 = _interopRequireDefault(_in_button_listener);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -174,19 +174,7 @@ function mainGame() {
 
 	document.body.style.cursor = "default";
 
-	canvas.addEventListener("mousemove", function (event) {
-		if ((0, _in_button2.default)(start_dimens, event)) {
-			document.body.style.cursor = "pointer";
-		} else {
-			document.body.style.cursor = "default";
-		}
-	});
-
-	canvas.addEventListener("click", function (event) {
-		if ((0, _in_button2.default)(start_dimens, event)) {
-			(0, _start_song2.default)();
-		}
-	});
+	(0, _in_button_listener2.default)(start_dimens, event, _start_song2.default);
 }
 
 /***/ }),
@@ -623,9 +611,9 @@ var _back_button = __webpack_require__(7);
 
 var _back_button2 = _interopRequireDefault(_back_button);
 
-var _in_button = __webpack_require__(24);
+var _in_button_listener = __webpack_require__(25);
 
-var _in_button2 = _interopRequireDefault(_in_button);
+var _in_button_listener2 = _interopRequireDefault(_in_button_listener);
 
 var _remove_all_listeners = __webpack_require__(0);
 
@@ -653,19 +641,7 @@ function startSong() {
 	ctx.strokeStyle = "black";
 	(_ctx = ctx).strokeRect.apply(_ctx, back_dimens);
 
-	canvas.addEventListener("mousemove", function (event) {
-		if ((0, _in_button2.default)(back_dimens, event)) {
-			document.body.style.cursor = "pointer";
-		} else {
-			document.body.style.cursor = "default";
-		}
-	});
-
-	canvas.addEventListener("click", function (event) {
-		if ((0, _in_button2.default)(back_dimens, event)) {
-			(0, _back_button2.default)();
-		}
-	});
+	(0, _in_button_listener2.default)(back_dimens, event, _back_button2.default);
 
 	song1.play();
 
@@ -677,7 +653,8 @@ function startSong() {
 }
 
 /***/ }),
-/* 24 */
+/* 24 */,
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -689,7 +666,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-exports.default = inButton;
+exports.default = inButtonListener;
 function inButton(_ref, event) {
 	var _ref2 = _slicedToArray(_ref, 4),
 	    button_x = _ref2[0],
@@ -701,6 +678,22 @@ function inButton(_ref, event) {
 	var y_coord = event.offsetY;
 
 	return x_coord > button_x && x_coord < button_x + button_len && y_coord > button_y && y_coord < button_y + button_height;
+}
+
+function inButtonListener(dimens, event, btn_fn) {
+	canvas.addEventListener("mousemove", function (event) {
+		if (inButton(dimens, event)) {
+			document.body.style.cursor = "pointer";
+		} else {
+			document.body.style.cursor = "default";
+		}
+	});
+
+	canvas.addEventListener("click", function (event) {
+		if (inButton(dimens, event)) {
+			btn_fn();
+		}
+	});
 }
 
 /***/ })

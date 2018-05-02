@@ -1,7 +1,7 @@
 import { keyboard } from "../keyboard";
 import renderTextField from "../text_field/text_field";
 import backButton from "./back_button";
-import inButton from "../../actions/in_button";
+import inButtonListener from "../../actions/in_button_listener";
 import removeAllListeners from "../../actions/remove_all_listeners";
 import handleBeats from "../../actions/beat_handling";
 
@@ -19,19 +19,7 @@ export default function startSong() {
 	ctx.strokeStyle = "black";
 	ctx.strokeRect(...back_dimens);
 
-	canvas.addEventListener("mousemove", event => {
-		if (inButton(back_dimens, event)) {
-			document.body.style.cursor = "pointer";
-		} else {
-			document.body.style.cursor = "default";
-		}
-	});
-
-	canvas.addEventListener("click", event => {
-		if (inButton(back_dimens, event)) {
-			backButton();
-		}
-	});
+	inButtonListener(back_dimens, event, backButton);
 
 	song1.play();
 
