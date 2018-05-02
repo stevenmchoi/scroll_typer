@@ -579,7 +579,7 @@ var keyboard = exports.keyboard = function keyboard() {
 	mac_keys_img.onload = function () {
 		ctx.drawImage(mac_keys_img, 80, 70, 1300, 360, 0, 480, 1195, 319);
 	};
-	mac_keys_img.src = 'app/assets/images/mackeys.png';
+	mac_keys_img.src = "assets/images/mackeys.png";
 };
 
 /***/ }),
@@ -595,7 +595,6 @@ var _howler = __webpack_require__(18);
 // 	src: [
 // 		path.resolve(
 // 			__dirname,
-// 			'app',
 // 			'assets',
 // 			'songs',
 // 			'Animusic',
