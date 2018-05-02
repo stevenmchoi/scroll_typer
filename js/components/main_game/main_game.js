@@ -4,7 +4,19 @@ import backButton from "./back_button";
 import removeAllListeners from "../../actions/remove_all_listeners";
 import handleBeats from "../../actions/beat_handling";
 
-export default function mainGame(event) {
+function inSongButton([start_x, start_y, start_len, start_height], event) {
+	const x_coord = event.offsetX;
+	const y_coord = event.offsetY;
+
+	return (
+		x_coord > start_x &&
+		x_coord < start_x + start_len &&
+		y_coord > start_y &&
+		y_coord < start_y + start_height
+	);
+}
+
+export default function mainGame(start_dimens) {
 	removeAllListeners();
 
 	ctx.font = "50px Roboto Mono";
@@ -12,15 +24,20 @@ export default function mainGame(event) {
 
 	document.body.style.cursor = "default";
 
+	canvas.addEventListener("mousemove", event => {
+		if (inSongButton(start_dimens, event)) {
+			document.body.style.cursor = "pointer";
+		} else {
+			document.body.style.cursor = "default";
+		}
+	});
+
 	canvas.addEventListener("click", event => {
-		const x_coord = event.offsetX;
-		const y_coord = event.offsetY;
-
-		const song1 = document.getElementById("song1");
-		song1.volume = 0.3;
-
 		// https://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/
-		if (x_coord > 400 && x_coord < 800 && y_coord > 300 && y_coord < 425) {
+		if (inSongButton(start_dimens, event)) {
+			const song1 = document.getElementById("song1");
+			song1.volume = 0.3;
+
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			removeAllListeners();
 

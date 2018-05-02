@@ -111,21 +111,32 @@ var _main_game = __webpack_require__(2);
 
 var _main_game2 = _interopRequireDefault(_main_game);
 
+var _remove_all_listeners = __webpack_require__(0);
+
+var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function root() {
+	var _ctx;
+
 	window.canvas = document.getElementById("game-layer");
 	window.ctx = canvas.getContext("2d");
+	(0, _remove_all_listeners2.default)();
 
+	// Render start button
+	var start_dimens = [400.5, 300.5, 400, 125];
 	ctx.strokeStyle = "black";
-	ctx.strokeRect(400.5, 300.5, 400, 125);
+	(_ctx = ctx).strokeRect.apply(_ctx, start_dimens);
 	ctx.fillStyle = "#000";
 	ctx.fill();
 
 	document.body.style.cursor = "wait";
 
 	// TODO: Someday, figure out how backup fonts worked in JS
-	document.fonts.load("50px Roboto Mono").then(_main_game2.default);
+	document.fonts.load("50px Roboto Mono").then(function () {
+		return (0, _main_game2.default)(start_dimens);
+	});
 }
 
 /***/ }),
@@ -138,6 +149,9 @@ function root() {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 exports.default = mainGame;
 
 var _text_field = __webpack_require__(9);
@@ -160,7 +174,20 @@ var _beat_handling2 = _interopRequireDefault(_beat_handling);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function mainGame(event) {
+function inSongButton(_ref, event) {
+	var _ref2 = _slicedToArray(_ref, 4),
+	    start_x = _ref2[0],
+	    start_y = _ref2[1],
+	    start_len = _ref2[2],
+	    start_height = _ref2[3];
+
+	var x_coord = event.offsetX;
+	var y_coord = event.offsetY;
+
+	return x_coord > start_x && x_coord < start_x + start_len && y_coord > start_y && y_coord < start_y + start_height;
+}
+
+function mainGame(start_dimens) {
 	(0, _remove_all_listeners2.default)();
 
 	ctx.font = "50px Roboto Mono";
@@ -168,15 +195,20 @@ function mainGame(event) {
 
 	document.body.style.cursor = "default";
 
+	canvas.addEventListener("mousemove", function (event) {
+		if (inSongButton(start_dimens, event)) {
+			document.body.style.cursor = "pointer";
+		} else {
+			document.body.style.cursor = "default";
+		}
+	});
+
 	canvas.addEventListener("click", function (event) {
-		var x_coord = event.offsetX;
-		var y_coord = event.offsetY;
-
-		var song1 = document.getElementById("song1");
-		song1.volume = 0.3;
-
 		// https://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/
-		if (x_coord > 400 && x_coord < 800 && y_coord > 300 && y_coord < 425) {
+		if (inSongButton(start_dimens, event)) {
+			var song1 = document.getElementById("song1");
+			song1.volume = 0.3;
+
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			(0, _remove_all_listeners2.default)();
 
