@@ -118,24 +118,15 @@ var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function root() {
-	var _ctx;
-
 	window.canvas = document.getElementById("game-layer");
 	window.ctx = canvas.getContext("2d");
 	(0, _remove_all_listeners2.default)();
-
-	// Render start button
-	var start_dimens = [400.5, 300.5, 400, 125];
-	ctx.strokeStyle = "black";
-	(_ctx = ctx).strokeRect.apply(_ctx, start_dimens);
-	ctx.fillStyle = "#000";
-	ctx.fill();
 
 	document.body.style.cursor = "wait";
 
 	// TODO: Someday, figure out how backup fonts worked in JS
 	document.fonts.load("50px Roboto Mono").then(function () {
-		return (0, _main_game2.default)(start_dimens);
+		return (0, _main_game2.default)();
 	});
 }
 
@@ -177,9 +168,19 @@ function inSongButton(_ref, event) {
 	return x_coord > start_x && x_coord < start_x + start_len && y_coord > start_y && y_coord < start_y + start_height;
 }
 
-function mainGame(start_dimens) {
+function mainGame() {
+	var _ctx;
+
 	(0, _remove_all_listeners2.default)();
 
+	// Render start button
+	var start_dimens = [400.5, 300.5, 400, 125];
+	ctx.strokeStyle = "black";
+	(_ctx = ctx).strokeRect.apply(_ctx, start_dimens);
+	ctx.fillStyle = "#000";
+	ctx.fill();
+
+	// Render start button text
 	ctx.font = "50px Roboto Mono";
 	ctx.fillText("Future Retro", 420.5, 380.5);
 
