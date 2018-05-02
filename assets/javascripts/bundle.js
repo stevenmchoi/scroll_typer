@@ -140,9 +140,6 @@ function root() {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
 exports.default = mainGame;
 
 var _remove_all_listeners = __webpack_require__(0);
@@ -153,20 +150,11 @@ var _start_song = __webpack_require__(23);
 
 var _start_song2 = _interopRequireDefault(_start_song);
 
+var _in_button = __webpack_require__(24);
+
+var _in_button2 = _interopRequireDefault(_in_button);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function inSongButton(_ref, event) {
-	var _ref2 = _slicedToArray(_ref, 4),
-	    start_x = _ref2[0],
-	    start_y = _ref2[1],
-	    start_len = _ref2[2],
-	    start_height = _ref2[3];
-
-	var x_coord = event.offsetX;
-	var y_coord = event.offsetY;
-
-	return x_coord > start_x && x_coord < start_x + start_len && y_coord > start_y && y_coord < start_y + start_height;
-}
 
 function mainGame() {
 	var _ctx;
@@ -187,7 +175,7 @@ function mainGame() {
 	document.body.style.cursor = "default";
 
 	canvas.addEventListener("mousemove", function (event) {
-		if (inSongButton(start_dimens, event)) {
+		if ((0, _in_button2.default)(start_dimens, event)) {
 			document.body.style.cursor = "pointer";
 		} else {
 			document.body.style.cursor = "default";
@@ -195,7 +183,7 @@ function mainGame() {
 	});
 
 	canvas.addEventListener("click", function (event) {
-		if (inSongButton(start_dimens, event)) {
+		if ((0, _in_button2.default)(start_dimens, event)) {
 			(0, _start_song2.default)();
 		}
 	});
@@ -668,6 +656,33 @@ function startSong() {
 	(0, _text_field2.default)();
 
 	(0, _beat_handling2.default)();
+}
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+exports.default = inButton;
+function inButton(_ref, event) {
+	var _ref2 = _slicedToArray(_ref, 4),
+	    button_x = _ref2[0],
+	    button_y = _ref2[1],
+	    button_len = _ref2[2],
+	    button_height = _ref2[3];
+
+	var x_coord = event.offsetX;
+	var y_coord = event.offsetY;
+
+	return x_coord > button_x && x_coord < button_x + button_len && y_coord > button_y && y_coord < button_y + button_height;
 }
 
 /***/ })
