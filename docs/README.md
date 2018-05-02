@@ -44,7 +44,7 @@ choppy gameplay and would be too jarring for rhythm game players.
 
 ## Wireframes
 
-![main-view](./app/assets/wireframes/main_view_wireframe.png)
+![main-view](./assets/wireframes/main_view_wireframe.png)
 
 ## Timeline
 

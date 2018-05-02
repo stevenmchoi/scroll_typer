@@ -5,7 +5,6 @@ import { Howl, Howler } from "howler";
 // 	src: [
 // 		path.resolve(
 // 			__dirname,
-// 			'app',
 // 			'assets',
 // 			'songs',
 // 			'Animusic',

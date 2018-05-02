@@ -3,5 +3,5 @@ export const keyboard = () => {
 	mac_keys_img.onload = () => {
 		ctx.drawImage(mac_keys_img, 80, 70, 1300, 360, 0, 480, 1195, 319);
 	};
-	mac_keys_img.src = 'app/assets/images/mackeys.png';
+	mac_keys_img.src = "assets/images/mackeys.png";
 };
