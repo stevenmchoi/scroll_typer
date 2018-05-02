@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,40 +73,26 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.default = root;
+exports.default = removeAllListeners;
 
-var _main_game = __webpack_require__(1);
+var _main_game = __webpack_require__(2);
 
 var _main_game2 = _interopRequireDefault(_main_game);
 
-var _remove_all_listeners = __webpack_require__(9);
+var _back_button = __webpack_require__(7);
 
-var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
+var _back_button2 = _interopRequireDefault(_back_button);
+
+var _keypress_handling = __webpack_require__(5);
+
+var _keypress_handling2 = _interopRequireDefault(_keypress_handling);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function root() {
-	window.canvas = document.getElementById('game-layer');
-	window.ctx = canvas.getContext('2d');
-
-	(0, _remove_all_listeners2.default)();
-
-	ctx.strokeStyle = 'black';
-	ctx.strokeRect(400.5, 300.5, 400, 125);
-	ctx.fillStyle = '#000';
-	ctx.fill();
-
-	document.body.style.cursor = 'wait';
-
-	// TODO: Someday, figure out how backup fonts worked in JS
-	document.fonts.load('50px Roboto Mono').then(function () {
-		ctx.font = '50px Roboto Mono';
-		ctx.fillText('Future Retro', 420.5, 380.5);
-
-		canvas.addEventListener('click', _main_game2.default);
-
-		document.body.style.cursor = 'default';
-	});
+function removeAllListeners() {
+	canvas.removeEventListener('click', _main_game2.default);
+	canvas.removeEventListener('click', _back_button2.default);
+	canvas.removeEventListener('keypress', _keypress_handling2.default);
 }
 
 /***/ }),
@@ -119,19 +105,65 @@ function root() {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+exports.default = root;
+
+var _main_game = __webpack_require__(2);
+
+var _main_game2 = _interopRequireDefault(_main_game);
+
+var _remove_all_listeners = __webpack_require__(0);
+
+var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function root() {
+	window.canvas = document.getElementById("game-layer");
+	window.ctx = canvas.getContext("2d");
+
+	ctx.strokeStyle = "black";
+	ctx.strokeRect(400.5, 300.5, 400, 125);
+	ctx.fillStyle = "#000";
+	ctx.fill();
+
+	document.body.style.cursor = "wait";
+
+	// TODO: Someday, figure out how backup fonts worked in JS
+	document.fonts.load("50px Roboto Mono").then(function () {
+		(0, _remove_all_listeners2.default)();
+
+		ctx.font = "50px Roboto Mono";
+		ctx.fillText("Future Retro", 420.5, 380.5);
+
+		canvas.addEventListener("click", _main_game2.default);
+
+		document.body.style.cursor = "default";
+	});
+}
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 exports.default = mainGame;
 
-var _text_field = __webpack_require__(11);
+var _text_field = __webpack_require__(9);
 
 var _text_field2 = _interopRequireDefault(_text_field);
 
-var _keyboard = __webpack_require__(17);
+var _keyboard = __webpack_require__(16);
 
 var _back_button = __webpack_require__(7);
 
 var _back_button2 = _interopRequireDefault(_back_button);
 
-var _remove_all_listeners = __webpack_require__(9);
+var _remove_all_listeners = __webpack_require__(0);
 
 var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
 
@@ -142,19 +174,23 @@ var _beat_handling2 = _interopRequireDefault(_beat_handling);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function mainGame(event) {
-	(0, _remove_all_listeners2.default)();
-
 	var x_coord = event.offsetX;
 	var y_coord = event.offsetY;
 
+	var song1 = document.getElementById("song1");
+	song1.volume = 0.3;
+
 	if (x_coord > 400 && x_coord < 800 && y_coord > 300 && y_coord < 425) {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		(0, _remove_all_listeners2.default)();
 
-		ctx.font = '50px Roboto Mono';
-		ctx.fillText('Back', 25, 70);
-		ctx.strokeStyle = 'black';
+		ctx.font = "50px Roboto Mono";
+		ctx.fillText("Back", 25, 70);
+		ctx.strokeStyle = "black";
 		ctx.strokeRect(-0.5, -0.5, 170, 100);
-		canvas.addEventListener('click', _back_button2.default);
+		canvas.addEventListener("click", _back_button2.default);
+
+		song1.play();
 
 		(0, _keyboard.keyboard)();
 
@@ -165,7 +201,7 @@ function mainGame(event) {
 }
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -191,7 +227,7 @@ function renderTextBox() {
 }
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -202,14 +238,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = randCommonWord;
 
-var _filtered = __webpack_require__(13);
+var _filtered = __webpack_require__(11);
 
 function randCommonWord() {
 	return _filtered.commonMoreThan_2[Math.floor(Math.random() * _filtered.commonMoreThan_2.length)];
 }
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -220,19 +256,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = handleKeypress;
 
-var _rand_common_word = __webpack_require__(3);
+var _rand_common_word = __webpack_require__(4);
 
 var _rand_common_word2 = _interopRequireDefault(_rand_common_word);
 
-var _render_text = __webpack_require__(5);
+var _render_text = __webpack_require__(6);
 
 var _render_text2 = _interopRequireDefault(_render_text);
 
-var _render_text_box = __webpack_require__(2);
+var _render_text_box = __webpack_require__(3);
 
 var _render_text_box2 = _interopRequireDefault(_render_text_box);
 
-var _sleep = __webpack_require__(6);
+var _sleep = __webpack_require__(15);
 
 var _sleep2 = _interopRequireDefault(_sleep);
 
@@ -262,7 +298,7 @@ function handleKeypress(event) {
 }
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -298,27 +334,6 @@ function renderText() {
 }
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.default = sleep;
-// https://www.sitepoint.com/delay-sleep-pause-wait/
-function sleep(milliseconds) {
-	var start = new Date().getTime();
-	for (var i = 0; i < 1e7; i++) {
-		if (new Date().getTime() - start > milliseconds) {
-			break;
-		}
-	}
-}
-
-/***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -329,22 +344,29 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _song_handling = __webpack_require__(8);
+var _song_handling = __webpack_require__(17);
 
-var _root = __webpack_require__(0);
+var _root = __webpack_require__(1);
 
 var _root2 = _interopRequireDefault(_root);
+
+var _remove_all_listeners = __webpack_require__(0);
+
+var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (event) {
 	var x_coord = event.offsetX;
 	var y_coord = event.offsetY;
+	var song1 = document.getElementById("song1");
 
-	if (x_coord > 0 && x_coord < 200 && y_coord > 0 && y_coord < 200) {
+	if (x_coord > 0 && x_coord < 170 && y_coord > 0 && y_coord < 100) {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		(0, _remove_all_listeners2.default)();
 
-		_song_handling.sampleSong.stop();
+		song1.pause();
+		song1.currentTime = 0;
 
 		(0, _root2.default)();
 	}
@@ -355,22 +377,17 @@ exports.default = function (event) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(__dirname) {
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.sampleSong = undefined;
 
-var _howler = __webpack_require__(18);
+var _root = __webpack_require__(1);
 
-var path = __webpack_require__(20);
-var sampleSong = exports.sampleSong = new _howler.Howl({
-	src: [path.resolve(__dirname, 'app', 'assets', 'songs', 'Animusic', '01_Future_Retro.mp3')],
-	volume: 0.01
-	// onend: display score, cancel clicking, and allow only to go back
-});
-/* WEBPACK VAR INJECTION */}.call(exports, "/"))
+var _root2 = _interopRequireDefault(_root);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// const root = require('./components/root');
+
+document.addEventListener("DOMContentLoaded", _root2.default);
 
 /***/ }),
 /* 9 */
@@ -382,71 +399,22 @@ var sampleSong = exports.sampleSong = new _howler.Howl({
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.default = removeAllListeners;
 
-var _main_game = __webpack_require__(1);
+var _dict = __webpack_require__(10);
 
-var _main_game2 = _interopRequireDefault(_main_game);
-
-var _back_button = __webpack_require__(7);
-
-var _back_button2 = _interopRequireDefault(_back_button);
-
-var _keypress_handling = __webpack_require__(4);
-
-var _keypress_handling2 = _interopRequireDefault(_keypress_handling);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function removeAllListeners() {
-	canvas.removeEventListener('click', _main_game2.default);
-	canvas.removeEventListener('click', _back_button2.default);
-	canvas.removeEventListener('keypress', _keypress_handling2.default);
-}
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _root = __webpack_require__(0);
-
-var _root2 = _interopRequireDefault(_root);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// const root = require('./components/root');
-
-document.addEventListener('DOMContentLoaded', _root2.default);
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _dict = __webpack_require__(12);
-
-var _render_text_box = __webpack_require__(2);
+var _render_text_box = __webpack_require__(3);
 
 var _render_text_box2 = _interopRequireDefault(_render_text_box);
 
-var _rand_common_word = __webpack_require__(3);
+var _rand_common_word = __webpack_require__(4);
 
 var _rand_common_word2 = _interopRequireDefault(_rand_common_word);
 
-var _keypress_handling = __webpack_require__(4);
+var _keypress_handling = __webpack_require__(5);
 
 var _keypress_handling2 = _interopRequireDefault(_keypress_handling);
 
-var _render_text = __webpack_require__(5);
+var _render_text = __webpack_require__(6);
 
 var _render_text2 = _interopRequireDefault(_render_text);
 
@@ -477,7 +445,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 12 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -489,15 +457,15 @@ Object.defineProperty(exports, "__esModule", {
 var dict = exports.dict = ['Hello World!', 'alleviate'];
 
 /***/ }),
-/* 13 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var common_5000Words = __webpack_require__(14);
-var leftHanded = __webpack_require__(15);
-var rightHandedWords = __webpack_require__(16);
+var common_5000Words = __webpack_require__(12);
+var leftHanded = __webpack_require__(13);
+var rightHandedWords = __webpack_require__(14);
 
 function moreThan_2(wordsArr) {
 	return wordsArr.filter(function (word) {
@@ -530,7 +498,7 @@ module.exports = exports = {
 };
 
 /***/ }),
-/* 14 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -541,7 +509,7 @@ var common_5000Words = ['the', 'be', 'and', 'of', 'a', 'in', 'to', 'have', 'to',
 module.exports = common_5000Words;
 
 /***/ }),
-/* 15 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -574,7 +542,7 @@ exports.leftHandedWords = exports.keyboard_3LetterWords.concat(exports.keyboard_
 module.exports = exports;
 
 /***/ }),
-/* 16 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -585,7 +553,28 @@ var rightHandedWords = ['hi', 'hili', 'hill', 'hillo', 'hilly', 'hilum', 'him', 
 module.exports = rightHandedWords;
 
 /***/ }),
-/* 17 */
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = sleep;
+// https://www.sitepoint.com/delay-sleep-pause-wait/
+function sleep(milliseconds) {
+	var start = new Date().getTime();
+	for (var i = 0; i < 1e7; i++) {
+		if (new Date().getTime() - start > milliseconds) {
+			break;
+		}
+	}
+}
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -599,8 +588,32 @@ var keyboard = exports.keyboard = function keyboard() {
 	mac_keys_img.onload = function () {
 		ctx.drawImage(mac_keys_img, 80, 70, 1300, 360, 0, 480, 1195, 319);
 	};
-	mac_keys_img.src = 'app/assets/images/mackeys.png';
+	mac_keys_img.src = "assets/images/mackeys.png";
 };
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _howler = __webpack_require__(18);
+
+// export const sampleSong = new Howl({
+// 	src: [
+// 		path.resolve(
+// 			__dirname,
+// 			'assets',
+// 			'songs',
+// 			'Animusic',
+// 			'01_Future_Retro.mp3'
+// 		),
+// 	],
+// 	volume: 0.01,
+// 	// onend: display score, cancel clicking, and allow only to go back
+// });
+var path = __webpack_require__(20);
 
 /***/ }),
 /* 18 */
@@ -3972,17 +3985,13 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = handleBeats;
-
-var _song_handling = __webpack_require__(8);
-
-var _sleep = __webpack_require__(6);
-
-var _sleep2 = _interopRequireDefault(_sleep);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+// import { sampleSong } from './song_handling';
+// import sleep from './sleep';
 
 function handleBeats() {
-	_song_handling.sampleSong.play();
+	var song1 = document.getElementById("song1");
+	song1.volume = 0.3;
+	song1.play();
 }
 
 /***/ })

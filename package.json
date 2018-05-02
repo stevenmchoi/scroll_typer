@@ -1,8 +1,7 @@
 {
 	"name": "rhythm_typer",
 	"version": "1.0.0",
-	"description":
-		"## Overview Rhythm Typer is simply a rhythm game with typing game elements, overlapping the goals of each.",
+	"description": "## Overview Rhythm Typer is simply a rhythm game with typing game elements, overlapping the goals of each.",
 	"main": "index.js",
 	"engines": {
 		"node": "8.9.4",

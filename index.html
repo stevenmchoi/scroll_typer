@@ -5,18 +5,13 @@
 
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<<<<<<< HEAD:index.html
-	<script src="bundle.js" type="type/javascript"></script>
-=======
-	<script src="bundle.js"></script>
->>>>>>> gh-pages:index.html
 
 	<title>Rhythm Typer</title>
 
 	<style>
 		@font-face {
 			font-family: Roboto Mono;
-			src: url('./app/assets/fonts/Roboto_Mono/RobotoMono-Regular.ttf') format('truetype');
+			src: url('assets/fonts/Roboto_Mono/RobotoMono-Regular.ttf') format('truetype');
 		}
 
 		* {
@@ -41,10 +36,13 @@
 </head>
 
 <body>
+	<audio src="assets/songs/Animusic/01_Future_Retro.mp3" id="song1">
+	</audio>
 
 	<canvas id="game-layer" width="1200" height="800"></canvas>
 	<!-- If background-image not good enough for "game-layer" canvas -->
 	<!-- <canvas id="bkgd-layer" width="1200" height="800"></canvas> -->
+	<script src="assets/javascripts/bundle.js"></script>
 
 </body>
 
