@@ -1,7 +1,8 @@
 {
 	"name": "rhythm_typer",
 	"version": "1.0.0",
-	"description": "## Overview Rhythm Typer is simply a rhythm game with typing game elements, overlapping the goals of each.",
+	"description":
+		"## Overview Rhythm Typer is simply a rhythm game with typing game elements, overlapping the goals of each.",
 	"main": "index.js",
 	"engines": {
 		"node": "8.9.4",
@@ -11,8 +12,8 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"postinstall": "webpack",
 		"webpack": "webpack --watch",
-		"server": "http-server -c-1",
-		"start": "node js/index.js",
+		"livereload": "livereload .",
+		"start": "node js/entry.js",
 		"dev": "concurrently \"npm run webpack\" \"npm run server\""
 	},
 	"repository": {
