@@ -86,26 +86,26 @@ var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function root() {
-	window.canvas = document.getElementById('game-layer');
-	window.ctx = canvas.getContext('2d');
+	window.canvas = document.getElementById("game-layer");
+	window.ctx = canvas.getContext("2d");
 
-	(0, _remove_all_listeners2.default)();
-
-	ctx.strokeStyle = 'black';
+	ctx.strokeStyle = "black";
 	ctx.strokeRect(400.5, 300.5, 400, 125);
-	ctx.fillStyle = '#000';
+	ctx.fillStyle = "#000";
 	ctx.fill();
 
-	document.body.style.cursor = 'wait';
+	document.body.style.cursor = "wait";
 
 	// TODO: Someday, figure out how backup fonts worked in JS
-	document.fonts.load('50px Roboto Mono').then(function () {
-		ctx.font = '50px Roboto Mono';
-		ctx.fillText('Future Retro', 420.5, 380.5);
+	document.fonts.load("50px Roboto Mono").then(function () {
+		(0, _remove_all_listeners2.default)();
 
-		canvas.addEventListener('click', _main_game2.default);
+		ctx.font = "50px Roboto Mono";
+		ctx.fillText("Future Retro", 420.5, 380.5);
 
-		document.body.style.cursor = 'default';
+		canvas.addEventListener("click", _main_game2.default);
+
+		document.body.style.cursor = "default";
 	});
 }
 
@@ -135,20 +135,22 @@ var _remove_all_listeners = __webpack_require__(7);
 
 var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
 
+var _beat_handling = __webpack_require__(22);
+
+var _beat_handling2 = _interopRequireDefault(_beat_handling);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import handleBeats from "../../actions/beat_handling";
-
 function mainGame(event) {
-	(0, _remove_all_listeners2.default)();
-
 	var x_coord = event.offsetX;
 	var y_coord = event.offsetY;
 
 	var song1 = document.getElementById("song1");
+	song1.volume = 0.3;
 
 	if (x_coord > 400 && x_coord < 800 && y_coord > 300 && y_coord < 425) {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		(0, _remove_all_listeners2.default)();
 
 		ctx.font = "50px Roboto Mono";
 		ctx.fillText("Back", 25, 70);
@@ -162,7 +164,7 @@ function mainGame(event) {
 
 		(0, _text_field2.default)();
 
-		// handleBeats();
+		(0, _beat_handling2.default)();
 	}
 }
 
@@ -316,6 +318,10 @@ var _root = __webpack_require__(0);
 
 var _root2 = _interopRequireDefault(_root);
 
+var _remove_all_listeners = __webpack_require__(7);
+
+var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (event) {
@@ -323,8 +329,9 @@ exports.default = function (event) {
 	var y_coord = event.offsetY;
 	var song1 = document.getElementById("song1");
 
-	if (x_coord > 0 && x_coord < 200 && y_coord > 0 && y_coord < 200) {
+	if (x_coord > 0 && x_coord < 170 && y_coord > 0 && y_coord < 100) {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		(0, _remove_all_listeners2.default)();
 
 		song1.pause();
 		song1.currentTime = 0;
@@ -3964,6 +3971,26 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = handleBeats;
+// import { sampleSong } from './song_handling';
+// import sleep from './sleep';
+
+function handleBeats() {
+	var song1 = document.getElementById("song1");
+	song1.volume = 0.3;
+	song1.play();
+}
 
 /***/ })
 /******/ ]);
