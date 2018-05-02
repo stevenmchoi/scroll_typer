@@ -1,5 +1,5 @@
-// import { sampleSong } from './song_handling';
-// import sleep from './sleep';
+// import { song1 } from './song_handling';
+// import sleep from "./sleep";
 
 export default function handleBeats() {
 	const song1 = document.getElementById("song1");
