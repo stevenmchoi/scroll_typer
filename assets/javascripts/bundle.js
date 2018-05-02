@@ -154,23 +154,13 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 exports.default = mainGame;
 
-var _text_field = __webpack_require__(9);
-
-var _text_field2 = _interopRequireDefault(_text_field);
-
-var _keyboard = __webpack_require__(16);
-
-var _back_button = __webpack_require__(7);
-
-var _back_button2 = _interopRequireDefault(_back_button);
-
 var _remove_all_listeners = __webpack_require__(0);
 
 var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
 
-var _beat_handling = __webpack_require__(22);
+var _start_song = __webpack_require__(23);
 
-var _beat_handling2 = _interopRequireDefault(_beat_handling);
+var _start_song2 = _interopRequireDefault(_start_song);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -204,27 +194,8 @@ function mainGame(start_dimens) {
 	});
 
 	canvas.addEventListener("click", function (event) {
-		// https://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/
 		if (inSongButton(start_dimens, event)) {
-			var song1 = document.getElementById("song1");
-			song1.volume = 0.3;
-
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-			(0, _remove_all_listeners2.default)();
-
-			ctx.font = "50px Roboto Mono";
-			ctx.fillText("Back", 25, 70);
-			ctx.strokeStyle = "black";
-			ctx.strokeRect(-0.5, -0.5, 170, 100);
-			canvas.addEventListener("click", _back_button2.default);
-
-			song1.play();
-
-			(0, _keyboard.keyboard)();
-
-			(0, _text_field2.default)();
-
-			(0, _beat_handling2.default)();
+			(0, _start_song2.default)();
 		}
 	});
 }
@@ -642,6 +613,60 @@ function handleBeats() {
 	var song1 = document.getElementById("song1");
 	song1.volume = 0.3;
 	song1.play();
+}
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = startSong;
+
+var _keyboard = __webpack_require__(16);
+
+var _text_field = __webpack_require__(9);
+
+var _text_field2 = _interopRequireDefault(_text_field);
+
+var _back_button = __webpack_require__(7);
+
+var _back_button2 = _interopRequireDefault(_back_button);
+
+var _remove_all_listeners = __webpack_require__(0);
+
+var _remove_all_listeners2 = _interopRequireDefault(_remove_all_listeners);
+
+var _beat_handling = __webpack_require__(22);
+
+var _beat_handling2 = _interopRequireDefault(_beat_handling);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function startSong() {
+	var song1 = document.getElementById("song1");
+	song1.volume = 0.3;
+
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	(0, _remove_all_listeners2.default)();
+
+	ctx.font = "50px Roboto Mono";
+	ctx.fillText("Back", 25, 70);
+	ctx.strokeStyle = "black";
+	ctx.strokeRect(-0.5, -0.5, 170, 100);
+	canvas.addEventListener("click", _back_button2.default);
+
+	song1.play();
+
+	(0, _keyboard.keyboard)();
+
+	(0, _text_field2.default)();
+
+	(0, _beat_handling2.default)();
 }
 
 /***/ })
