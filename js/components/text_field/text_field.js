@@ -1,4 +1,6 @@
-import { dict } from '../../dicts/dict';
+import {
+	dict
+} from '../../dicts/dict';
 import renderTextBox from './render_text_box';
 import randCommonWord from './rand_common_word';
 import handleKeypress from '../../actions/keypress_handling';

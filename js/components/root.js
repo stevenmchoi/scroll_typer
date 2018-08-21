@@ -4,6 +4,7 @@ import removeAllListeners from "../actions/remove_all_listeners";
 export default function root() {
 	window.canvas = document.getElementById("game-layer");
 	window.ctx = canvas.getContext("2d");
+	window.canvasClone = canvas.cloneNode(true);
 	removeAllListeners();
 
 	document.body.style.cursor = "wait";
