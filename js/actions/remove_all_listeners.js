@@ -1,4 +1,4 @@
-import mainGame from '../components/pages/main_game/main_game';
+import mainPage from '../components/pages/main_page/main_page';
 import backButton from '../components/buttons/back_button';
 import handleKeypress from './keypress_handling';
 
@@ -12,7 +12,7 @@ export default function removeAllListeners() {
 
 	// el.parentNode.replaceChild(elClone, el);
 
-	canvas.removeEventListener('click', mainGame);
+	canvas.removeEventListener('click', mainPage);
 	canvas.removeEventListener('click', backButton);
 	document.removeEventListener('keypress', handleKeypress);
 }

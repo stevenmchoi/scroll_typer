@@ -3,7 +3,7 @@ import renderButton from "../../buttons/render_button";
 import startSong from "./start_song";
 import bindSongs from "../../../actions/song_handling";
 
-export default function mainGame() {
+export default function mainPage() {
 	removeAllListeners();
 
 	// Render start button
@@ -14,8 +14,7 @@ export default function mainGame() {
 	// Bind songs to window
 	bindSongs();
 
-	// User score
-
+	// Render user score
 
 	document.body.style.cursor = "default";
 }

@@ -1,4 +1,4 @@
-import root from "../root";
+import mainPage from "../pages/main_page/main_page";
 import removeAllListeners from "../../actions/remove_all_listeners";
 
 export default function backButton() {
@@ -8,5 +8,5 @@ export default function backButton() {
 	song1.pause();
 	song1.currentTime = 0;
 
-	root();
+	mainPage();
 }
