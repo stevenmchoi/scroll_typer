@@ -1,5 +1,5 @@
 // import { keyboard } from "../keyboard";
-import renderTextField from "../../text_field/text_field";
+import renderTextField from "../../text_field/render_text_field";
 import backButton from "../../buttons/back_button";
 import renderButton from '../../buttons/render_button';
 import removeAllListeners from "../../../actions/remove_all_listeners";

@@ -14,7 +14,7 @@ function renderRandWord() {
 	document.addEventListener('keypress', handleKeypress);
 }
 
-export default () => {
+export default function renderTextField() {
 	window.typedKeys = [];
 	window.randWord = '';
 	window.textStartLocation = 360 + 0.5;
@@ -28,4 +28,4 @@ export default () => {
 	// TODO: render last character
 	renderTextBox();
 	renderRandWord();
-};
+}
