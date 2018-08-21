@@ -1,4 +1,5 @@
-import mainGame from "./main_game/main_game";
+// import mainGame from "./main_game/main_game";
+import mainGame from './pages/main_game/main_game';
 import removeAllListeners from "../actions/remove_all_listeners";
 
 export default function root() {

@@ -1,12 +1,12 @@
 // import { keyboard } from "../keyboard";
-import renderTextField from "../text_field/text_field";
-import backButton from "./back_button";
-import renderButton from '../buttons/render_button';
-import removeAllListeners from "../../actions/remove_all_listeners";
+import renderTextField from "../../text_field/text_field";
+import backButton from "../../buttons/back_button";
+import renderButton from '../../buttons/render_button';
+import removeAllListeners from "../../../actions/remove_all_listeners";
 // import handleBeats from "../../actions/beat_handling";
 import {
 	playSong1
-} from "../../actions/song_handling";
+} from "../../../actions/song_handling";
 
 export default function startSong() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);

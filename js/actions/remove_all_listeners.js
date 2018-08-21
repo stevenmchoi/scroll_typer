@@ -1,5 +1,5 @@
-import mainGame from '../components/main_game/main_game';
-import backButton from '../components/main_game/back_button';
+import mainGame from '../components/pages/main_game/main_game';
+import backButton from '../components/buttons/back_button';
 import handleKeypress from './keypress_handling';
 
 export default function removeAllListeners() {

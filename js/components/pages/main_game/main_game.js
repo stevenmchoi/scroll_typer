@@ -1,5 +1,5 @@
-import removeAllListeners from "../../actions/remove_all_listeners";
-import renderButton from "../buttons/render_button";
+import removeAllListeners from "../../../actions/remove_all_listeners";
+import renderButton from "../../buttons/render_button";
 import startSong from "./start_song";
 
 export default function mainGame() {
