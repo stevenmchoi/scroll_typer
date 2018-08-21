@@ -5,12 +5,6 @@ export default function renderScore() {
         window.userScore = 0;
     }
 
-    // // Button box
-    // ctx.strokeStyle = "black";
-    // ctx.strokeRect(400.5, 300.5, 170, 100);
-    // ctx.fillStyle = "#000";
-    // ctx.fill();
-
     // Button text
     ctx.font = "50px Roboto Mono";
     ctx.textAlign = "right";

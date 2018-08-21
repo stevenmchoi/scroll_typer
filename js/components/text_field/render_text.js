@@ -1,4 +1,5 @@
 import renderTextBox from "./render_text_box";
+import renderScore from "../score/render_score";
 
 export default function renderText() {
 	ctx.clearRect(textStartLocation, 0, 1200, 425 + 0.5);
@@ -28,4 +29,7 @@ export default function renderText() {
 
 		userScore += score;
 	}
+
+	// Re-render score on screen
+	renderScore();
 }

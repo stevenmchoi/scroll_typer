@@ -1,7 +1,6 @@
 import {
 	dict
 } from '../../dicts/dict';
-import renderTextBox from './render_text_box';
 import randCommonWord from './rand_common_word';
 import handleKeypress from '../../actions/keypress_handling';
 import renderText from './render_text';
@@ -10,11 +9,11 @@ function renderRandWord() {
 	randWord = randCommonWord();
 
 	renderText();
-
-	document.addEventListener('keypress', handleKeypress);
 }
 
 export default function renderTextField() {
+	document.addEventListener('keypress', handleKeypress);
+
 	window.typedKeys = [];
 	window.randWord = '';
 	window.textStartLocation = 360 + 0.5;
@@ -26,6 +25,5 @@ export default function renderTextField() {
 	// mark right or wrong
 
 	// TODO: render last character
-	renderTextBox();
 	renderRandWord();
 }

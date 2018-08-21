@@ -14,5 +14,5 @@ export default function renderButton(
     ctx.fillText(...fillText);
 
     // Button listener
-    inButtonListener(btnDimens, event, btnCb);
+    inButtonListener(btnDimens, btnCb);
 }
