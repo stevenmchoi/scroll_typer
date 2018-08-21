@@ -6,7 +6,6 @@ import removeAllListeners from "../../../actions/remove_all_listeners";
 // import handleBeats from "../../../actions/beat_handling";
 
 export default function startSong() {
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	removeAllListeners();
 
 	// Render back button

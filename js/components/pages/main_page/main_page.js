@@ -2,7 +2,6 @@ import removeAllListeners from "../../../actions/remove_all_listeners";
 import renderButton from "../../buttons/render_button";
 import startSong from "./start_song";
 import bindSongs from "../../../actions/song_handling";
-import renderScore from '../../score/render_score';
 
 export default function mainPage() {
 	removeAllListeners();
@@ -14,9 +13,6 @@ export default function mainPage() {
 
 	// Bind songs to window
 	bindSongs();
-
-	// Render user score
-	renderScore();
 
 	document.body.style.cursor = "default";
 }

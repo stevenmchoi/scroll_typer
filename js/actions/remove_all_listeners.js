@@ -1,6 +1,7 @@
 import mainPage from '../components/pages/main_page/main_page';
 import backButton from '../components/buttons/back_button';
 import handleKeypress from './keypress_handling';
+import renderScore from '../components/score/render_score';
 
 export default function removeAllListeners() {
 	// canvas.parentNode.replaceChild(canvasClone, canvas);
@@ -15,4 +16,10 @@ export default function removeAllListeners() {
 	canvas.removeEventListener('click', mainPage);
 	canvas.removeEventListener('click', backButton);
 	document.removeEventListener('keypress', handleKeypress);
+
+	// Clear canvas
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+	// Render score on each page
+	renderScore();
 }
