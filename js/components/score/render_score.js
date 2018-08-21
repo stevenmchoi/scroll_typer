@@ -1,4 +1,6 @@
 export default function renderScore() {
+    ctx.clearRect(900.5, 600.5, canvas.width, canvas.height);
+
     if (!window.userScore) {
         window.userScore = 0;
     }

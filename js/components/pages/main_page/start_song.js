@@ -18,10 +18,10 @@ export default function startSong() {
 	renderTextField();
 
 	// Render timer
-	setInterval(() => {
-		console.log("song1.currentTime: " + song1.currentTime);
-		console.log("song1.duration: " + song1.duration);
-	}, 1000);
+	// setInterval(() => {
+	// 	console.log("song1.currentTime: " + song1.currentTime);
+	// 	console.log("song1.duration: " + song1.duration);
+	// }, 1000);
 
 	// handleBeats();
 }

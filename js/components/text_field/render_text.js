@@ -1,11 +1,16 @@
-export default function renderText() {
-	let charLocation = textStartLocation;
+import renderTextBox from "./render_text_box";
 
+export default function renderText() {
+	ctx.clearRect(textStartLocation, 0, 1200, 425 + 0.5);
+
+	renderTextBox();
+
+	let charLocation = textStartLocation;
 	const colorScore = ['black', 'red', 'green'];
+	let score;
 
 	for (let charIdx = 0; charIdx < randWord.length; charIdx++) {
 		let char = randWord[charIdx];
-		let score;
 
 		if (typedKeys[charIdx] === char) {
 			score = 2;
@@ -20,5 +25,7 @@ export default function renderText() {
 		ctx.fillText(char, charLocation, 400);
 
 		charLocation += ctx.measureText(char).width;
+
+		userScore += score;
 	}
 }
