@@ -5,13 +5,13 @@ import sleep from './sleep'
 export default function handleKeypress(event) {
 	ctx.clearRect(textStartLocation, 0, 1200, 425 + 0.5);
 
-	typedKeys.push(event.key);
+	window.typedKeys.push(event.key);
 
 	renderText();
 
-	if (typedKeys.length === randWord.length) {
+	if (window.typedKeys.length === randWord.length) {
 		sleep(200).then(() => {
-			typedKeys = [];
+			window.typedKeys = [];
 			randWord = randCommonWord();
 
 			renderText();

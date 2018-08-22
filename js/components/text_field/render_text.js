@@ -8,27 +8,27 @@ export default function renderText() {
 
 	let charLocation = textStartLocation;
 	const colorScore = ['black', 'red', 'green'];
-	let score;
+	let scoreIdx;
 
 	for (let charIdx = 0; charIdx < randWord.length; charIdx++) {
 		let char = randWord[charIdx];
 
-		if (typedKeys[charIdx] === char) {
-			score = 2;
-		} else if (typedKeys[charIdx] === undefined) {
-			score = 0;
+		if (window.typedKeys[charIdx] === char) {
+			scoreIdx = 2;
+		} else if (window.typedKeys[charIdx] === undefined) {
+			scoreIdx = 0;
 		} else {
-			score = 1;
+			scoreIdx = 1;
 		}
 
 		ctx.font = '100px Roboto Mono';
-		ctx.fillStyle = colorScore[score];
+		ctx.fillStyle = colorScore[scoreIdx];
 		ctx.fillText(char, charLocation, 400);
 
 		charLocation += ctx.measureText(char).width;
-
-		userScore += score;
 	}
+	// Reset fillStyle to black
+	ctx.fillStyle = "black";
 
 	// Re-render score on screen
 	renderScore();
