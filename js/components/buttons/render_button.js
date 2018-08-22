@@ -1,4 +1,6 @@
-import inButtonListener from '../../actions/in_button_listener';
+import {
+    addButtonListener
+} from '../../actions/in_button_listener';
 
 export default function renderButton(
     btnDimens, fillText, btnCb, color = "black", fillColor = "#000", font = "50px Roboto Mono"
@@ -14,5 +16,5 @@ export default function renderButton(
     ctx.fillText(...fillText);
 
     // Button listener
-    inButtonListener(btnDimens, btnCb);
+    addButtonListener(btnDimens, btnCb);
 }
