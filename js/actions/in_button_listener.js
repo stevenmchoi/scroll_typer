@@ -10,7 +10,7 @@ function inButton([button_x, button_y, button_len, button_height], event) {
 	);
 }
 
-function buttonMousemoveListener(event) {
+function buttonMousemoveListener(dimens, event) {
 	if (inButton(dimens, event)) {
 		document.body.style.cursor = "pointer";
 	} else {
@@ -18,13 +18,13 @@ function buttonMousemoveListener(event) {
 	}
 }
 
-function buttonClickListener(event) {
+function buttonClickListener(dimens, btn_fn, event) {
 	if (inButton(dimens, event)) {
 		btn_fn();
 	}
 }
 
 export default function inButtonListener(dimens, btn_fn) {
-	canvas.addEventListener("mousemove", buttonMousemoveListener);
-	canvas.addEventListener("click", buttonClickListener);
+	canvas.addEventListener("mousemove", event => buttonMousemoveListener(dimens, event));
+	canvas.addEventListener("click", event => buttonClickListener(dimens, btn_fn, event));
 }
