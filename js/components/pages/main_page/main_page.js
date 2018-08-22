@@ -1,10 +1,10 @@
-import removeAllListeners from "../../../actions/remove_all_listeners";
+import resetScreen from "../../../actions/remove_all_listeners";
 import renderButton from "../../buttons/render_button";
 import startSong from "./start_song";
 import bindSongs from "../../../actions/song_handling";
 
 export default function mainPage() {
-	removeAllListeners();
+	resetScreen();
 
 	// Render start button
 	renderButton(

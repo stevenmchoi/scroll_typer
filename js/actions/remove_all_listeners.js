@@ -6,7 +6,7 @@ import {
 	removeButtonListeners
 } from './in_button_listener';
 
-export default function removeAllListeners() {
+export default function resetScreen() {
 	// TODO: Easier removal of listeners?
 	// canvas.parentNode.replaceChild(canvasClone, canvas);
 	// window.ctx = canvas.getContext("2d");

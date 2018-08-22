@@ -2,12 +2,12 @@
 import renderTextField from "../../text_field/render_text_field";
 import backButton from "../../buttons/back_button";
 import renderButton from '../../buttons/render_button';
-import removeAllListeners from "../../../actions/remove_all_listeners";
+import resetScreen from "../../../actions/remove_all_listeners";
 import songTimer from "../../timers/song_timer";
 // import handleBeats from "../../../actions/beat_handling";
 
 export default function startSong() {
-	removeAllListeners();
+	resetScreen();
 
 	// Render back button
 	renderButton([-0.5, -0.5, 170, 100], ["Back", 25, 70], backButton);
