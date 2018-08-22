@@ -1,5 +1,6 @@
 import renderTextBox from "./render_text_box";
 import renderScore from "../score/render_score";
+import calcScore from "../score/calc_score";
 
 export default function renderText() {
 	ctx.clearRect(textStartLocation, 0, 1200, 425 + 0.5);
@@ -29,6 +30,9 @@ export default function renderText() {
 	}
 	// Reset fillStyle to black
 	ctx.fillStyle = "black";
+
+	// Calculate score
+	calcScore();
 
 	// Re-render score on screen
 	renderScore();
