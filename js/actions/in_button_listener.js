@@ -32,13 +32,13 @@ export const addButtonListener = (dimens, btn_fn) => {
 		click: event => buttonClickListener(dimens, btn_fn, event)
 	}
 
-	canvas.addEventListener("mousemove", btnDict[btn_fn]["mousemove"]);
-	canvas.addEventListener("click", btnDict[btn_fn]["click"]);
+	canvas.addEventListener("mousemove", btnDict[btn_fn].mousemove);
+	canvas.addEventListener("click", btnDict[btn_fn].click);
 }
 
 export const removeButtonListeners = (btn_fn) => {
 	if (btnDict[btn_fn]) {
-		canvas.removeEventListener("mousemove", btnDict[btn_fn]["mousemove"]);
-		canvas.removeEventListener("click", btnDict[btn_fn]["click"]);
+		canvas.removeEventListener("mousemove", btnDict[btn_fn].mousemove);
+		canvas.removeEventListener("click", btnDict[btn_fn].click);
 	}
 }
