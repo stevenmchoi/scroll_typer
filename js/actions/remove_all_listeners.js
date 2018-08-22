@@ -1,7 +1,10 @@
+import startSong from '../components/pages/main_page/start_song';
 import backButton from '../components/buttons/back_button';
 import handleKeypress from './keypress_handling';
 import renderScore from '../components/score/render_score';
-import startSong from '../components/pages/main_page/start_song';
+import {
+	removeButtonListeners
+} from './in_button_listener';
 
 export default function removeAllListeners() {
 	// TODO: Easier removal of listeners?
@@ -14,8 +17,10 @@ export default function removeAllListeners() {
 
 	// el.parentNode.replaceChild(elClone, el);
 
-	canvas.removeEventListener('click', startSong);
-	canvas.removeEventListener('click', backButton);
+	// Remove all button listeners
+	removeButtonListeners(startSong);
+	removeButtonListeners(backButton);
+
 	document.removeEventListener('keypress', handleKeypress);
 
 	// Clear timers
