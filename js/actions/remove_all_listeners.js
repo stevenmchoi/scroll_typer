@@ -17,6 +17,9 @@ export default function removeAllListeners() {
 	canvas.removeEventListener('click', backButton);
 	document.removeEventListener('keypress', handleKeypress);
 
+	// Clear timers
+	clearInterval(window.songTimerInterval);
+
 	// Clear canvas
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 

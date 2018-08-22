@@ -3,6 +3,7 @@ import renderTextField from "../../text_field/render_text_field";
 import backButton from "../../buttons/back_button";
 import renderButton from '../../buttons/render_button';
 import removeAllListeners from "../../../actions/remove_all_listeners";
+import songTimer from "../../timers/song_timer";
 // import handleBeats from "../../../actions/beat_handling";
 
 export default function startSong() {
@@ -18,10 +19,7 @@ export default function startSong() {
 	renderTextField();
 
 	// Render timer
-	// setInterval(() => {
-	// 	console.log("song1.currentTime: " + song1.currentTime);
-	// 	console.log("song1.duration: " + song1.duration);
-	// }, 1000);
+	songTimer();
 
 	// handleBeats();
 }
