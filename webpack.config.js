@@ -8,16 +8,14 @@ module.exports = {
 		filename: "bundle.js",
 	},
 	module: {
-		loaders: [
-			{
-				test: [/\.js?$/],
-				exclude: /(node_modules)/,
-				loader: "babel-loader",
-				query: {
-					presets: ["env", "react", "es2015"],
-				},
+		loaders: [{
+			test: [/\.js?$/],
+			exclude: /(node_modules)/,
+			loader: "babel-loader",
+			query: {
+				presets: ["env", "react", "es2015"],
 			},
-		],
+		}, ],
 	},
 	devtool: "source-map",
 	resolve: {

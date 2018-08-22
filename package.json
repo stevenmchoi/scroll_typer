@@ -1,42 +1,42 @@
 {
-	"name": "rhythm_typer",
-	"version": "1.0.0",
-	"description": "## Overview Rhythm Typer is simply a rhythm game with typing game elements, overlapping the goals of each.",
-	"main": "index.js",
-	"engines": {
-		"node": "8.9.4",
-		"npm": "5.8.0"
-	},
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"postinstall": "webpack",
-		"webpack": "webpack --watch",
-		"server": "http-server",
-		"livereload": "livereload .",
-		"start": "node js/entry.js",
-		"dev": "concurrently concurrently \"npm run webpack\" \"npm run server\" \"npm run livereload\""
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/stevenmchoi/rhythm_typer.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/stevenmchoi/rhythm_typer/issues"
-	},
-	"homepage": "https://github.com/stevenmchoi/rhythm_typer#readme",
-	"dependencies": {
-		"babel-core": "^6.26.0",
-		"babel-loader": "^7.1.4",
-		"babel-preset-env": "^1.6.1",
-		"babel-preset-es2015": "^6.24.1",
-		"babel-preset-react": "^6.24.1",
-		"concurrently": "^3.5.1",
-		"howler": "^2.0.9",
-		"http-server": "^0.11.1",
-		"httpserver": "^0.3.0",
-		"webpack": "^3.4.1"
-	}
+  "name": "rhythm_typer",
+  "version": "1.0.0",
+  "description": "## Overview Rhythm Typer is simply a rhythm game with typing game elements, overlapping the goals of each.",
+  "main": "index.js",
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack",
+    "webpack": "webpack --watch",
+    "server": "http-server",
+    "livereload": "livereload .",
+    "start": "node js/entry.js",
+    "dev": "concurrently concurrently \"npm run webpack\" \"npm run server\" \"npm run livereload\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevenmchoi/rhythm_typer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stevenmchoi/rhythm_typer/issues"
+  },
+  "homepage": "https://github.com/stevenmchoi/rhythm_typer#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "^3.6.1",
+    "howler": "^2.0.14",
+    "http-server": "^0.11.1",
+    "httpserver": "^0.3.0",
+    "webpack": "^3.12.0"
+  }
 }
