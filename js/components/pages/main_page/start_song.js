@@ -1,9 +1,9 @@
-// import { keyboard } from "../keyboard";
 import renderTextField from "../../text_field/render_text_field";
 import backButton from "../../buttons/back_button";
 import renderButton from '../../buttons/render_button';
-import resetScreen from "../../../actions/remove_all_listeners";
+import resetScreen from "../../../actions/reset_screen";
 import songTimer from "../../timers/song_timer";
+// import { keyboard } from "../keyboard";
 // import handleBeats from "../../../actions/beat_handling";
 
 export default function startSong() {
@@ -14,12 +14,12 @@ export default function startSong() {
 
 	song1.play();
 
-	// keyboard();
-
 	renderTextField();
 
 	// Render timer
 	songTimer();
+
+	// keyboard();
 
 	// handleBeats();
 }

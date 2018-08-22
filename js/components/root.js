@@ -1,4 +1,3 @@
-// import mainPage from "./main_page/main_page";
 import mainPage from './pages/main_page/main_page';
 
 export default function root() {
