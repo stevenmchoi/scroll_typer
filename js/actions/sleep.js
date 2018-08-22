@@ -1,6 +1,10 @@
 export default function sleep(milliseconds) {
 	return new Promise((resolve, reject) => {
-		setTimeout(resolve, milliseconds);
+		if (isNaN(milliseconds)) {
+			reject(new Error("sleep function requires a valid number"));
+		} else {
+			setTimeout(resolve, milliseconds);
+		}
 	});
 }
 
