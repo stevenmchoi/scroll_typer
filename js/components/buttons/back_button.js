@@ -4,13 +4,8 @@ import songsPage from "../pages/songs_page";
 export default function backButton() {
   resetScreen();
 
-  document.removeEventListener(
-    "keyup",
-    window.listeners.backButtonKeyupListener
-  );
-
+  // Only pause for backButton
   window.currentSong.pause();
-  window.currentSong.currentTime = 0;
 
   songsPage();
 }

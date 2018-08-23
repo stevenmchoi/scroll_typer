@@ -27,7 +27,7 @@ export default function songPlayPage() {
 	songTimer();
 
 	// Render quit button
-	renderButton([-0.5, 550.5, 170, 100], ["Quit", 25, 620], gameOverPage);
+	renderButton([-0.5, 500.5, 170, 100], ["Quit", 25, 570], gameOverPage);
 
 	// keyboard();
 }
