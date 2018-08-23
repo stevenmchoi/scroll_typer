@@ -1,7 +1,6 @@
-import mainPage from "../pages/main_page/main_page";
 import resetScreen from "../../actions/reset_screen";
 
-export default function backButton() {
+export default function backButton(prevPage) {
 	resetScreen();
 	document.removeEventListener('keyup',
 		window.listeners.backButtonKeyupListener);
@@ -9,5 +8,5 @@ export default function backButton() {
 	song1.pause();
 	song1.currentTime = 0;
 
-	mainPage();
+	prevPage();
 }

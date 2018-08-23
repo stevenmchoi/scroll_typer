@@ -1,4 +1,4 @@
-import startSong from '../components/pages/main_page/start_song';
+import startSong from '../components/pages/song_page/start_song';
 import backButton from '../components/buttons/back_button';
 import handleKeypress from './keypress_handling';
 import renderScore from '../components/score/render_score';

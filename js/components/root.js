@@ -1,4 +1,4 @@
-import mainPage from './pages/main_page/main_page';
+import songPage from './pages/song_page/song_page';
 
 export default function root() {
 	window.canvas = document.getElementById("game-layer");
@@ -11,5 +11,5 @@ export default function root() {
 	window.listeners = {};
 
 	// TODO: Someday, figure out how backup fonts worked in JS
-	document.fonts.load("50px Roboto Mono").then(() => mainPage());
+	document.fonts.load("50px Roboto Mono").then(() => songPage());
 }
