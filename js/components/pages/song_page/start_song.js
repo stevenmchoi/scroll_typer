@@ -12,7 +12,7 @@ export default function startSong() {
 	renderButton([-0.5, -0.5, 170, 100], ["Back", 25, 70], backButton);
 	window.listeners.backButtonKeyupListener = (event) => {
 		if (event.key === 'ArrowLeft') {
-			backButton(songPage);
+			backButton();
 		}
 	};
 	document.addEventListener('keyup',

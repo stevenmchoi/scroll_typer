@@ -11,11 +11,15 @@ import {
 } from '../components/volume/volume_buttons';
 import renderVolumeControl from '../components/volume/render_volume_control';
 import loadSongs from './load_songs';
+import introPage from '../components/pages/intro';
+import songPage from '../components/pages/song_page/song_page';
 
 export default function resetScreen() {
 	// Remove all button listeners
 	removeButtonListeners(startSong);
+	removeButtonListeners(songPage);
 	removeButtonListeners(backButton);
+	removeButtonListeners(introPage);
 	// TODO: "incrVol" and "decrVol" listeners aren't disappearing
 	//       Causes larger increments of volume when clicking back and forth
 	removeButtonListeners(incrVol);
@@ -23,6 +27,7 @@ export default function resetScreen() {
 
 	document.removeEventListener('keypress', handleKeypress);
 	document.removeEventListener('keyup', window.listeners.backButtonKeyupListener)
+	document.removeEventListener('keyup', window.listeners.introBackButtonKeyupListener)
 
 	// Clear timers
 	clearInterval(window.songTimerInterval);

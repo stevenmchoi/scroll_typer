@@ -5,5 +5,5 @@ import songPage from "./song_page/song_page";
 export default function introPage() {
     resetScreen();
 
-    renderButton([400.5, 300.5, 200, 125], ["Songs", 420.5, 380.5], songPage)
+    renderButton([500.5, 600.5, 200, 125], ["START", 520.5, 680.5], songPage)
 }
