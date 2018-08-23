@@ -11,7 +11,6 @@ export default function loadSongs() {
 		// https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Media_events
 
 		if (song1) {
-			song1.volume = 0.01;
 			resolve(song1);
 		} else {
 			reject(new Error("Can't find song1"));

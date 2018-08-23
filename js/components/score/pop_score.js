@@ -24,7 +24,7 @@ export default function popScore(score, charIdx) {
         ctx.font = "40px Roboto Mono";
         ctx.textAlign = "right";
         ctx.fillStyle = "rgba(" + scoreColor[score].join(',') + "," + opacity / 100.0 + ")";
-        ctx.fillText(score, textStartLocation + 50 + 60 * charIdx, 480);
+        ctx.fillText(score, textStartLocation + 50 + 60 * charIdx, 480.5);
         ctx.textAlign = "start";
         ctx.fillStyle = "black";
 

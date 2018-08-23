@@ -5,6 +5,10 @@ import renderScore from '../components/score/render_score';
 import {
 	removeButtonListeners
 } from './in_button_listener';
+import {
+	incrVol,
+	decrVol
+} from '../components/volume/volume_buttons';
 
 export default function resetScreen() {
 	// TODO: Easier removal of listeners?
@@ -20,8 +24,11 @@ export default function resetScreen() {
 	// Remove all button listeners
 	removeButtonListeners(startSong);
 	removeButtonListeners(backButton);
+	removeButtonListeners(incrVol);
+	removeButtonListeners(decrVol);
 
 	document.removeEventListener('keypress', handleKeypress);
+	document.removeEventListener('keyup', window.listeners.backButtonKeyupListener)
 
 	// Clear timers
 	clearInterval(window.songTimerInterval);
