@@ -1,4 +1,4 @@
-import renderTextField from "../../text_field/render_text_field";
+import renderWordField from "../../word_field/render_word_field";
 import backButton from "../../buttons/back_button";
 import renderButton from '../../buttons/render_button';
 import resetScreen from "../../../actions/reset_screen";
@@ -20,7 +20,7 @@ export default function startSong() {
 
 	song1.play();
 
-	renderTextField();
+	renderWordField();
 
 	// Render timer
 	songTimer();

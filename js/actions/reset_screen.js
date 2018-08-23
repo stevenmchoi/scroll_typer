@@ -37,6 +37,9 @@ export default function resetScreen() {
 	// Render score on each page
 	renderScore();
 
+	// Reset cursor style
+	document.body.style.cursor = "default";
+
 	// TODO: Easier removal of listeners?
 	// canvas.parentNode.replaceChild(canvasClone, canvas);
 	// window.ctx = canvas.getContext("2d");

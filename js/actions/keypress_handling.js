@@ -1,5 +1,5 @@
-import randCommonWord from "../components/text_field/rand_common_word"
-import renderText from "../components/text_field/render_text"
+import randCommonWord from "../components/word_field/rand_common_word"
+import renderWord from "../components/word_field/render_word"
 import sleep from './sleep'
 
 export default function handleKeypress(event) {
@@ -9,14 +9,14 @@ export default function handleKeypress(event) {
 
 	// TODO: option: handle backspaces
 
-	renderText();
+	renderWord();
 
 	if (window.typedKeys.length === randWord.length) {
 		sleep(200).then(() => {
 			window.typedKeys = [];
 			randWord = randCommonWord();
 
-			renderText();
+			renderWord();
 		});
 	}
 }

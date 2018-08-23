@@ -2,6 +2,7 @@ import resetScreen from "../../../actions/reset_screen";
 import renderButton from "../../buttons/render_button";
 import startSong from "./start_song";
 import introPage from "../intro";
+import backButton from "../../buttons/back_button";
 
 export default function songPage() {
 	resetScreen();
@@ -18,6 +19,4 @@ export default function songPage() {
 	};
 	document.addEventListener('keyup',
 		window.listeners.backButtonKeyupListener);
-
-	document.body.style.cursor = "default";
 }

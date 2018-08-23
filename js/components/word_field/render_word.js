@@ -1,14 +1,14 @@
-import renderTextBox from "./render_text_box";
+import renderWordBox from "./render_word_box";
 import renderScore from "../score/render_score";
 import calcScore from "../score/calc_score";
 
-export default function renderText() {
+export default function renderWord() {
 	ctx.clearRect(textStartLocation, 0, 1200, 425 + 0.5);
 
-	renderTextBox();
+	renderWordBox();
 
 	let charLocation = textStartLocation;
-	const colorScore = ['black', 'red', 'green'];
+	const colorScore = ["black", "red", "green"];
 	let scoreIdx;
 
 	for (let charIdx = 0; charIdx < randWord.length; charIdx++) {
@@ -22,7 +22,7 @@ export default function renderText() {
 			scoreIdx = 1;
 		}
 
-		ctx.font = '100px Roboto Mono';
+		ctx.font = "100px Roboto Mono";
 		ctx.fillStyle = colorScore[scoreIdx];
 		ctx.fillText(char, charLocation, 400.5);
 
