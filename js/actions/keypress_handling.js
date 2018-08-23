@@ -14,8 +14,6 @@ export default function handleKeypress(event) {
 	// Calculate score
 	calcScore();
 
-	// renderWord();
-
 	if (window.typedKeys.length === window.randWord.length) {
 		sleep(200).then(() => {
 			window.typedKeys = [];
@@ -24,7 +22,6 @@ export default function handleKeypress(event) {
 			clearInterval(wordScrollerInterval);
 
 			wordScroller();
-			// renderWord();
 		});
 	}
 }

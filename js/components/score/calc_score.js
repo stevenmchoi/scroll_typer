@@ -13,11 +13,12 @@ export default function calcScore() {
         lastIdx = undefined;
     }
 
-    switch (lastKey) {
+    // Have render_word and calc_score pass score to each other
+    switch (lastKey.toLowerCase()) {
         case undefined:
             score = 0;
             break;
-        case window.randWord[lastIdx]:
+        case window.randWord[lastIdx].toLowerCase():
             score = "+2";
             break;
         default:

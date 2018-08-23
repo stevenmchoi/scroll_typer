@@ -10,21 +10,22 @@ export default function renderWord(currentPos = 400.5) {
 	let scoreIdx;
 
 	for (let charIdx = 0; charIdx < window.randWord.length; charIdx++) {
-		let char = window.randWord[charIdx];
+		let randChar = window.randWord[charIdx];
+		let typedChar = window.typedKeys[charIdx];
 
-		if (window.typedKeys[charIdx] === char) {
-			scoreIdx = 2;
-		} else if (window.typedKeys[charIdx] === undefined) {
+		if (typedChar === undefined) {
 			scoreIdx = 0;
+		} else if (typedChar.toLowerCase() === randChar.toLowerCase()) {
+			scoreIdx = 2;
 		} else {
 			scoreIdx = 1;
 		}
 
 		ctx.font = "100px Roboto Mono";
 		ctx.fillStyle = colorScore[scoreIdx];
-		ctx.fillText(char, charLocation, currentPos);
+		ctx.fillText(randChar, charLocation, currentPos);
 
-		charLocation += ctx.measureText(char).width;
+		charLocation += ctx.measureText(randChar).width;
 	}
 
 	// Reset fillStyle to black

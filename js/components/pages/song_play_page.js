@@ -29,5 +29,8 @@ export default function songPlayPage() {
 	// Render quit button
 	renderButton([-0.5, 500.5, 170, 100], ["Quit", 25, 570], gameOverPage);
 
+	// Check when song is over
+	currentSong.addEventListener("ended", gameOverPage);
+
 	// keyboard();
 }
