@@ -24,7 +24,7 @@ export default function renderText() {
 
 		ctx.font = '100px Roboto Mono';
 		ctx.fillStyle = colorScore[scoreIdx];
-		ctx.fillText(char, charLocation, 400);
+		ctx.fillText(char, charLocation, 400.5);
 
 		charLocation += ctx.measureText(char).width;
 	}

@@ -1,7 +1,8 @@
 import resetScreen from "../../../actions/reset_screen";
 import renderButton from "../../buttons/render_button";
 import startSong from "./start_song";
-import bindSongs from "../../../actions/song_handling";
+import loadSongs from "../../../actions/load_songs";
+import renderVolumeControl from "../../volume/render_volume_control";
 
 export default function mainPage() {
 	resetScreen();
@@ -9,8 +10,8 @@ export default function mainPage() {
 	// Render start button
 	renderButton([400.5, 300.5, 400, 125], ["Future Retro", 420.5, 380.5], startSong);
 
-	// Bind songs to window
-	bindSongs();
+	// Load songs
+	loadSongs().then(renderVolumeControl).catch(err => console.log(err));
 
 	document.body.style.cursor = "default";
 }

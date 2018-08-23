@@ -2,9 +2,7 @@ import renderTextField from "../../text_field/render_text_field";
 import backButton from "../../buttons/back_button";
 import renderButton from '../../buttons/render_button';
 import resetScreen from "../../../actions/reset_screen";
-import songTimer from "../../timers/song_timer";
-// import { keyboard } from "../keyboard";
-// import handleBeats from "../../../actions/beat_handling";
+import songTimer from "../../timers/song_timer"; // import { keyboard } from "../keyboard";
 
 export default function startSong() {
 	resetScreen();
@@ -27,6 +25,4 @@ export default function startSong() {
 	songTimer();
 
 	// keyboard();
-
-	// handleBeats();
 }
