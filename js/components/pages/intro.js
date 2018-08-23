@@ -16,6 +16,8 @@ export default function introPage() {
         "This is a rhythm game combined with a typing game,",
         "where you have to type to the rhythm of a song.",
         "",
+        "NOTE: not yet implemented; temporary solution below",
+        "",
         "As the words drop down the screen, type them before",
         "they reach the box.",
         "",
@@ -27,5 +29,5 @@ export default function introPage() {
         renderText(30, instructions[i], 200.5, 200 + 40 * i);
     }
 
-    renderButton([500.5, 600.5, 200, 125], ["START", 520.5, 680.5], songPage)
+    renderButton([500.5, 640.5, 200, 125], ["START", 527.5, 720.5], songPage)
 }
