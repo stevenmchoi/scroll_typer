@@ -4,14 +4,16 @@ export default function loadSongs() {
 
 	return new Promise((resolve, reject) => {
 		// Bind all songs to window
-		// window.song1 = document.getElementById("song1");
-		// window.song1 = new Audio(urlString);
+		// window.currentSong = document.getElementById("song1");
+		// window.currentSong = new Audio(urlString);
 		// https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Media_events
 
-		if (song1) {
+		window.currentSong = song1;
+
+		if (window.currentSong) {
 			resolve();
 		} else {
-			reject(new Error("Can't find song1"));
+			reject(new Error("Can't find song to play"));
 		}
 
 	});

@@ -1,58 +1,60 @@
-import startSong from '../components/pages/song_page/start_song';
-import backButton from '../components/buttons/back_button';
-import handleKeypress from './keypress_handling';
-import renderScore from '../components/score/render_score';
-import {
-	removeButtonListeners
-} from './in_button_listener';
-import {
-	incrVol,
-	decrVol
-} from '../components/volume/volume_buttons';
-import renderVolumeControl from '../components/volume/render_volume_control';
-import loadSongs from './load_songs';
-import introPage from '../components/pages/intro';
-import songPage from '../components/pages/song_page/song_page';
+import startSong from "../components/pages/song_page/start_song";
+import backButton from "../components/buttons/back_button";
+import handleKeypress from "./keypress_handling";
+import renderScore from "../components/score/render_score";
+import { removeButtonListeners } from "./in_button_listener";
+import { incrVol, decrVol } from "../components/volume/volume_buttons";
+import renderVolumeControl from "../components/volume/render_volume_control";
+import loadSongs from "./load_songs";
+import introPage from "../components/pages/intro";
+import songPage from "../components/pages/song_page/song_page";
 
 export default function resetScreen() {
-	// Remove all button listeners
-	removeButtonListeners(startSong);
-	removeButtonListeners(songPage);
-	removeButtonListeners(backButton);
-	removeButtonListeners(introPage);
-	// TODO: "incrVol" and "decrVol" listeners aren't disappearing
-	//       Causes larger increments of volume when clicking back and forth
-	removeButtonListeners(incrVol);
-	removeButtonListeners(decrVol);
+  // Remove all button listeners
+  removeButtonListeners(startSong);
+  removeButtonListeners(songPage);
+  removeButtonListeners(backButton);
+  removeButtonListeners(introPage);
+  // TODO: "incrVol" and "decrVol" listeners aren't disappearing
+  //       Causes larger increments of volume when clicking back and forth
+  removeButtonListeners(incrVol);
+  removeButtonListeners(decrVol);
 
-	document.removeEventListener('keypress', handleKeypress);
-	document.removeEventListener('keyup', window.listeners.backButtonKeyupListener)
-	document.removeEventListener('keyup', window.listeners.introBackButtonKeyupListener)
+  document.removeEventListener("keypress", handleKeypress);
+  document.removeEventListener(
+    "keyup",
+    window.listeners.backButtonKeyupListener
+  );
+  document.removeEventListener(
+    "keyup",
+    window.listeners.introBackButtonKeyupListener
+  );
 
-	// Clear timers
-	clearInterval(window.songTimerInterval);
-	clearInterval(window.wordTimerInterval);
+  // Clear timers
+  clearInterval(window.songTimerInterval);
+  clearInterval(window.wordScrollerInterval);
 
-	// Clear canvas
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // Clear canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	// Load songs and render volume control
-	loadSongs().then(renderVolumeControl).catch(err => console.log(err));
+  // Load songs and render volume control
+  loadSongs()
+    .then(renderVolumeControl)
+    .catch(err => console.log(err));
 
-	// Render score on each page
-	renderScore();
+  // Render score on each page
+  renderScore();
 
-	// Reset cursor style
-	document.body.style.cursor = "default";
+  // Reset cursor style
+  document.body.style.cursor = "default";
 
-	// TODO: Easier removal of listeners?
-	// canvas.parentNode.replaceChild(canvasClone, canvas);
-	// window.ctx = canvas.getContext("2d");
-	// canvasClone.parentNode.replaceChild(window.canvas.cloneNode(true), canvasClone);
+  // TODO: Easier removal of listeners?
+  // canvas.parentNode.replaceChild(canvasClone, canvas);
+  // window.ctx = canvas.getContext("2d");
+  // canvasClone.parentNode.replaceChild(window.canvas.cloneNode(true), canvasClone);
 
-	// var el = document.getElementById('game-layer'),
-	// 	elClone = el.cloneNode(true);
+  // var el = document.getElementById('game-layer'),
+  // 	elClone = el.cloneNode(true);
 
-	// el.parentNode.replaceChild(elClone, el);
-
+  // el.parentNode.replaceChild(elClone, el);
 }

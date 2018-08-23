@@ -3,20 +3,20 @@ import renderWord from "../components/word_field/render_word";
 import sleep from "./sleep";
 
 export default function handleKeypress(event) {
-  ctx.clearRect(textXPos, 0, 1200, 425 + 0.5);
+	ctx.clearRect(textXPos, 0, 1200, 425.5);
 
-  window.typedKeys.push(event.key);
+	window.typedKeys.push(event.key);
 
-  // TODO: option: handle backspaces
+	// TODO: option: handle backspaces
 
-  renderWord();
+	renderWord();
 
-  if (window.typedKeys.length === randWord.length) {
-    sleep(200).then(() => {
-      window.typedKeys = [];
-      randWord = randCommonWord();
+	if (window.typedKeys.length === randWord.length) {
+		sleep(200).then(() => {
+			window.typedKeys = [];
+			randWord = randCommonWord();
 
-      renderWord();
-    });
-  }
+			renderWord();
+		});
+	}
 }
