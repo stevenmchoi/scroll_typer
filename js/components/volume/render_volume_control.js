@@ -21,4 +21,5 @@ export default function renderVolumeControl() {
     // "+" and "-" buttons
     renderButton([90.5, 240.5, 50, 50], ["+", 100.5, 280.5], incrVol);
     renderButton([90.5, 420.5, 50, 50], ["-", 100.5, 460.5], decrVol);
+    // TODO: Also add "up" and "down" keys for changing volume
 }
