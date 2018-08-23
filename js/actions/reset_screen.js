@@ -13,13 +13,15 @@ import renderVolumeControl from "../components/volume/render_volume_control";
 import loadSongs from "./load_songs";
 import introPage from "../components/pages/intro";
 import songsPage from "../components/pages/songs_page";
+import gameOverPage from "../components/pages/game_over_page";
 
 export default function resetScreen() {
 	// Remove all button listeners
-	removeButtonListeners(songPlayPage);
-	removeButtonListeners(songsPage);
-	removeButtonListeners(backButton);
 	removeButtonListeners(introPage);
+	removeButtonListeners(backButton);
+	removeButtonListeners(songsPage);
+	removeButtonListeners(songPlayPage);
+	removeButtonListeners(gameOverPage);
 	// TODO: "incrVol" and "decrVol" listeners aren't disappearing
 	//       Causes larger increments of volume when clicking back and forth
 	removeButtonListeners(incrVol);

@@ -1,6 +1,9 @@
 export default function renderScore() {
     ctx.clearRect(900.5, 600.5, canvas.width, canvas.height);
 
+    console.log("I'm called in renderScore!");
+    console.log(window.userScore);
+
     if (!window.userScore) {
         window.userScore = 0;
     }
