@@ -5,7 +5,7 @@ import {
 } from "./volume_buttons";
 
 export default function renderVolumeControl() {
-    if (!window.volIdx) {
+    if (!window.volIdx && window.volIdx !== 0) {
         window.volIdx = 5;
         song1.volume = 0.5;
     }

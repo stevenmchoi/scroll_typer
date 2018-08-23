@@ -13,19 +13,11 @@ import renderVolumeControl from '../components/volume/render_volume_control';
 import loadSongs from './load_songs';
 
 export default function resetScreen() {
-	// TODO: Easier removal of listeners?
-	// canvas.parentNode.replaceChild(canvasClone, canvas);
-	// window.ctx = canvas.getContext("2d");
-	// canvasClone.parentNode.replaceChild(window.canvas.cloneNode(true), canvasClone);
-
-	// var el = document.getElementById('game-layer'),
-	// 	elClone = el.cloneNode(true);
-
-	// el.parentNode.replaceChild(elClone, el);
-
 	// Remove all button listeners
 	removeButtonListeners(startSong);
 	removeButtonListeners(backButton);
+	// TODO: "incrVol" and "decrVol" listeners aren't disappearing
+	//       Causes larger increments of volume when clicking back and forth
 	removeButtonListeners(incrVol);
 	removeButtonListeners(decrVol);
 
@@ -44,4 +36,15 @@ export default function resetScreen() {
 
 	// Render score on each page
 	renderScore();
+
+	// TODO: Easier removal of listeners?
+	// canvas.parentNode.replaceChild(canvasClone, canvas);
+	// window.ctx = canvas.getContext("2d");
+	// canvasClone.parentNode.replaceChild(window.canvas.cloneNode(true), canvasClone);
+
+	// var el = document.getElementById('game-layer'),
+	// 	elClone = el.cloneNode(true);
+
+	// el.parentNode.replaceChild(elClone, el);
+
 }

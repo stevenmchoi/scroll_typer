@@ -42,4 +42,6 @@ export const removeButtonListeners = (btn_fn) => {
 		canvas.removeEventListener("mousemove", btnDict[btn_fn].mousemove);
 		canvas.removeEventListener("click", btnDict[btn_fn].click);
 	}
+
+	console.log(btnDict);
 }
