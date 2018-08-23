@@ -1,6 +1,7 @@
 import randCommonWord from "../components/word_field/rand_common_word";
-import renderWord from "../components/word_field/render_word";
+// import renderWord from "../components/word_field/render_word";
 import sleep from "./sleep";
+import wordScroller from "../components/timers/word_scroller";
 
 export default function handleKeypress(event) {
 	ctx.clearRect(textXPos, 0, 1200, 425.5);
@@ -9,14 +10,17 @@ export default function handleKeypress(event) {
 
 	// TODO: option: handle backspaces
 
-	renderWord();
+	// renderWord();
 
-	if (window.typedKeys.length === randWord.length) {
+	if (window.typedKeys.length === window.randWord.length) {
 		sleep(200).then(() => {
 			window.typedKeys = [];
-			randWord = randCommonWord();
+			window.randWord = randCommonWord();
 
-			renderWord();
+			clearInterval(wordScrollerInterval);
+
+			wordScroller();
+			// renderWord();
 		});
 	}
 }

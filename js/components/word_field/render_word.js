@@ -11,8 +11,8 @@ export default function renderWord(currentPos = 400.5) {
 	const colorScore = ["black", "red", "green"];
 	let scoreIdx;
 
-	for (let charIdx = 0; charIdx < randWord.length; charIdx++) {
-		let char = randWord[charIdx];
+	for (let charIdx = 0; charIdx < window.randWord.length; charIdx++) {
+		let char = window.randWord[charIdx];
 
 		if (window.typedKeys[charIdx] === char) {
 			scoreIdx = 2;

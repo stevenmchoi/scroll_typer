@@ -1,19 +1,12 @@
-import { dict } from "../../dicts/dict";
 import randCommonWord from "./rand_common_word";
 import handleKeypress from "../../actions/keypress_handling";
-import renderWord from "./render_word";
+import wordScroller from "../timers/word_scroller";
 
-function renderRandWord() {
-  randWord = randCommonWord();
-
-  renderWord();
-}
-
-export default function renderWordField() {
+export default function setupWordField() {
   document.addEventListener("keypress", handleKeypress);
 
   window.typedKeys = [];
-  window.randWord = "";
+  window.randWord = randCommonWord();
   window.textXPos = 360 + 0.5;
 
   // (null on initial step; need )
@@ -23,5 +16,5 @@ export default function renderWordField() {
   // mark right or wrong
 
   // TODO: render last character
-  renderRandWord();
+  wordScroller();
 }

@@ -5,10 +5,13 @@ export default function wordScroller() {
   window.wordScrollerInterval = setInterval(() => {
     renderWord(currentYPos);
 
-    if (currentYPos === 425.5) {
+    if (currentYPos === 400.5) {
       clearInterval(wordScrollerInterval);
+
+      window.typedKeys = [];
+      window.randWord = randCommonWord();
     }
 
-    currentYPos += 5;
-  }, 1);
+    currentYPos += 1;
+  }, 10);
 }
