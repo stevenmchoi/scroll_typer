@@ -1,11 +1,11 @@
-import setupWordField from "../../word_field/setup_word_field";
-import backButton from "../../buttons/back_button";
-import renderButton from "../../buttons/render_button";
-import resetScreen from "../../../actions/reset_screen";
-import songTimer from "../../timers/song_timer"; // import { keyboard } from "../keyboard";
-// import songPage from "./song_page";
+import setupWordField from "../word_field/setup_word_field";
+import backButton from "../buttons/back_button";
+import renderButton from "../buttons/render_button";
+import resetScreen from "../../actions/reset_screen";
+import songTimer from "../timers/song_timer"; // import { keyboard } from "../keyboard";
+// import songPage from "./songs_page";
 
-export default function startSong() {
+export default function songPlayPage() {
 	resetScreen();
 
 	// Render back button

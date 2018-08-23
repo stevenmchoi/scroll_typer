@@ -1,6 +1,6 @@
 import resetScreen from "../../actions/reset_screen";
 import renderButton from "../buttons/render_button";
-import songPage from "./song_page/song_page";
+import songsPage from "./songs_page";
 import renderText from "../util/render_text";
 
 export default function introPage() {
@@ -29,5 +29,5 @@ export default function introPage() {
         renderText(30, instructions[i], 200.5, 200 + 40 * i);
     }
 
-    renderButton([500.5, 640.5, 200, 125], ["START", 527.5, 720.5], songPage)
+    renderButton([500.5, 640.5, 200, 125], ["START", 527.5, 720.5], songsPage);
 }

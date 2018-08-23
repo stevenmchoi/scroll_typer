@@ -1,5 +1,5 @@
 import resetScreen from "../../actions/reset_screen";
-import songPage from "../pages/song_page/song_page";
+import songsPage from "../pages/songs_page";
 
 export default function backButton() {
   resetScreen();
@@ -12,5 +12,5 @@ export default function backButton() {
   window.currentSong.pause();
   window.currentSong.currentTime = 0;
 
-  songPage();
+  songsPage();
 }
