@@ -1,7 +1,5 @@
 import renderWordBox from "./render_word_box";
 import renderScore from "../score/render_score";
-import calcScore from "../score/calc_score";
-
 export default function renderWord(currentPos = 400.5) {
 	ctx.clearRect(textXPos, 0, 1200, 425.5);
 
@@ -31,9 +29,6 @@ export default function renderWord(currentPos = 400.5) {
 
 	// Reset fillStyle to black
 	ctx.fillStyle = "black";
-
-	// Calculate score
-	calcScore();
 
 	// Re-render score on screen
 	renderScore();
