@@ -1,6 +1,9 @@
+import popScore from "./pop_score";
+
 export default function calcScore() {
     let lastKey;
     let lastIdx;
+    let score;
 
     if (window.typedKeys) {
         lastKey = window.typedKeys[window.typedKeys.length - 1];
@@ -12,13 +15,19 @@ export default function calcScore() {
 
     switch (lastKey) {
         case undefined:
-            window.userScore += 0;
+            score = 0;
             break;
         case window.randWord[lastIdx]:
-            window.userScore += 2;
+            score = "+2";
             break;
         default:
-            window.userScore += -1;
+            score = "-1";
             break;
     }
+
+    if (score !== 0) {
+        popScore(score, lastIdx);
+    }
+
+    window.userScore += parseInt(score);
 }

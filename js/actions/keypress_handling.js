@@ -7,6 +7,8 @@ export default function handleKeypress(event) {
 
 	window.typedKeys.push(event.key);
 
+	// TODO: option: handle backspaces
+
 	renderText();
 
 	if (window.typedKeys.length === randWord.length) {

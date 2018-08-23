@@ -25,6 +25,7 @@ export default function resetScreen() {
 
 	// Clear timers
 	clearInterval(window.songTimerInterval);
+	clearInterval(window.wordTimerInterval);
 
 	// Clear canvas
 	ctx.clearRect(0, 0, canvas.width, canvas.height);

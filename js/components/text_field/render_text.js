@@ -28,6 +28,7 @@ export default function renderText() {
 
 		charLocation += ctx.measureText(char).width;
 	}
+
 	// Reset fillStyle to black
 	ctx.fillStyle = "black";
 
