@@ -2,39 +2,39 @@ import renderWordBox from "./render_word_box";
 import renderScore from "../score/render_score";
 import calcScore from "../score/calc_score";
 
-export default function renderWord() {
-	ctx.clearRect(textStartLocation, 0, 1200, 425 + 0.5);
+export default function renderWord(currentPos = 425 + 0.5) {
+  ctx.clearRect(textXPos, 0, 1200, currentPos);
 
-	renderWordBox();
+  renderWordBox();
 
-	let charLocation = textStartLocation;
-	const colorScore = ["black", "red", "green"];
-	let scoreIdx;
+  let charLocation = textXPos;
+  const colorScore = ["black", "red", "green"];
+  let scoreIdx;
 
-	for (let charIdx = 0; charIdx < randWord.length; charIdx++) {
-		let char = randWord[charIdx];
+  for (let charIdx = 0; charIdx < randWord.length; charIdx++) {
+    let char = randWord[charIdx];
 
-		if (window.typedKeys[charIdx] === char) {
-			scoreIdx = 2;
-		} else if (window.typedKeys[charIdx] === undefined) {
-			scoreIdx = 0;
-		} else {
-			scoreIdx = 1;
-		}
+    if (window.typedKeys[charIdx] === char) {
+      scoreIdx = 2;
+    } else if (window.typedKeys[charIdx] === undefined) {
+      scoreIdx = 0;
+    } else {
+      scoreIdx = 1;
+    }
 
-		ctx.font = "100px Roboto Mono";
-		ctx.fillStyle = colorScore[scoreIdx];
-		ctx.fillText(char, charLocation, 400.5);
+    ctx.font = "100px Roboto Mono";
+    ctx.fillStyle = colorScore[scoreIdx];
+    ctx.fillText(char, charLocation, 400.5);
 
-		charLocation += ctx.measureText(char).width;
-	}
+    charLocation += ctx.measureText(char).width;
+  }
 
-	// Reset fillStyle to black
-	ctx.fillStyle = "black";
+  // Reset fillStyle to black
+  ctx.fillStyle = "black";
 
-	// Calculate score
-	calcScore();
+  // Calculate score
+  calcScore();
 
-	// Re-render score on screen
-	renderScore();
+  // Re-render score on screen
+  renderScore();
 }

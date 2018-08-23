@@ -1,6 +1,4 @@
-import {
-  dict
-} from "../../dicts/dict";
+import { dict } from "../../dicts/dict";
 import randCommonWord from "./rand_common_word";
 import handleKeypress from "../../actions/keypress_handling";
 import renderWord from "./render_word";
@@ -16,7 +14,7 @@ export default function renderWordField() {
 
   window.typedKeys = [];
   window.randWord = "";
-  window.textStartLocation = 360 + 0.5;
+  window.textXPos = 360 + 0.5;
 
   // (null on initial step; need )
   // listen to key that was pressed
