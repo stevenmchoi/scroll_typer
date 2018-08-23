@@ -2,8 +2,9 @@ import setupWordField from "../word_field/setup_word_field";
 import backButton from "../buttons/back_button";
 import renderButton from "../buttons/render_button";
 import resetScreen from "../../actions/reset_screen";
-import songTimer from "../timers/song_timer"; // import { keyboard } from "../keyboard";
-// import songPage from "./songs_page";
+import songTimer from "../timers/song_timer";
+import gameOverPage from "./game_over_page";
+// import { keyboard } from "../keyboard";
 
 export default function songPlayPage() {
 	resetScreen();
@@ -24,6 +25,9 @@ export default function songPlayPage() {
 
 	// Render timer
 	songTimer();
+
+	// Render quit button
+	renderButton([-0.5, 550.5, 170, 100], ["Quit", 25, 620], gameOverPage);
 
 	// keyboard();
 }
