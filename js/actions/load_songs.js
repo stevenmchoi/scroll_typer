@@ -11,7 +11,7 @@ export default function loadSongs() {
 		// https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Media_events
 
 		if (song1) {
-			resolve(song1);
+			resolve();
 		} else {
 			reject(new Error("Can't find song1"));
 		}

@@ -4,9 +4,13 @@ import {
     decrVol
 } from "./volume_buttons";
 
-export default function renderVolumeControl(song) {
-    song1.volume = 0.5;
-    let volume = song.volume * 100;
+export default function renderVolumeControl() {
+    if (!window.volIdx) {
+        window.volIdx = 5;
+        song1.volume = 0.5;
+    }
+
+    let volume = song1.volume * 100;
 
     ctx.font = "30px Roboto Mono";
     ctx.textAlign = "right";

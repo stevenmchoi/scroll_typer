@@ -9,6 +9,8 @@ import {
 	incrVol,
 	decrVol
 } from '../components/volume/volume_buttons';
+import renderVolumeControl from '../components/volume/render_volume_control';
+import loadSongs from './load_songs';
 
 export default function resetScreen() {
 	// TODO: Easier removal of listeners?
@@ -36,6 +38,9 @@ export default function resetScreen() {
 
 	// Clear canvas
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+	// Load songs and render volume control
+	loadSongs().then(renderVolumeControl).catch(err => console.log(err));
 
 	// Render score on each page
 	renderScore();

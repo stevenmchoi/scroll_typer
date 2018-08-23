@@ -32,11 +32,9 @@ export const addButtonListener = (dimens, btn_fn) => {
 		click: event => buttonClickListener(dimens, btn_fn, event)
 	}
 
-	// TODO: Let inButton handle multiple dimensions
+	// TODO: Let inButton handle multiple dimensions with global mousemove dimens
 	canvas.addEventListener("mousemove", btnDict[btn_fn].mousemove);
 	canvas.addEventListener("click", btnDict[btn_fn].click);
-
-	console.log(btnDict);
 }
 
 export const removeButtonListeners = (btn_fn) => {
