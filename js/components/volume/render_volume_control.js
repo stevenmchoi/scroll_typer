@@ -1,5 +1,9 @@
 import renderButton from "../buttons/render_button";
-import { incrVol, decrVol } from "./volume_buttons";
+import {
+  incrVol,
+  decrVol
+} from "./volume_buttons";
+// import playPauseButton from "./play_pause_button";
 
 export default function renderVolumeControl() {
   if (!window.volIdx && window.volIdx !== 0) {

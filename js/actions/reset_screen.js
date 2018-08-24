@@ -14,10 +14,12 @@ import loadSongs from "./load_songs";
 import introPage from "../components/pages/intro";
 import songsPage from "../components/pages/songs_page";
 import gameOverPage from "../components/pages/game_over_page";
+import playPauseButton from "../components/volume/play_pause_button";
 
 export default function resetScreen() {
 	// Remove all button listeners
 	removeButtonListeners(introPage);
+	removeButtonListeners(playPauseButton);
 	removeButtonListeners(backButton);
 	removeButtonListeners(songsPage);
 	removeButtonListeners(songPlayPage);

@@ -4,6 +4,7 @@ import renderButton from "../buttons/render_button";
 import resetScreen from "../../actions/reset_screen";
 import songTimer from "../timers/song_timer";
 import gameOverPage from "./game_over_page";
+import playPauseButton from "../volume/play_pause_button";
 // import { keyboard } from "../keyboard";
 
 export default function songPlayPage() {
@@ -20,6 +21,28 @@ export default function songPlayPage() {
 	document.addEventListener("keyup", window.listeners.backButtonKeyupListener);
 
 	window.currentSong.play();
+
+	// Play/pause button
+	// renderButton([190.5, 320.5, 80, 80], ["", 200.5, 373.5], playPauseButton);
+	currentSong.addEventListener("playing", playPauseButton);
+
+	console.log(window.currentSong.playing);
+
+	ctx.fillStyle = "black";
+	ctx.strokeRect(190.5, 320.5, 80, 80);
+	if (window.currentSong.playing) {
+		ctx.fillRect(208.5, 335.5, 15, 50);
+		ctx.fillRect(238.5, 335.5, 15, 50);
+	} else {
+		ctx.strokeStyle = 'black';
+		ctx.beginPath();
+		ctx.moveTo(208.5, 335.5);
+		ctx.lineTo(238.5, 360.5);
+		ctx.lineTo(208.5, 385.5);
+		ctx.lineTo(208.5, 335.5);
+		ctx.stroke();
+		ctx.fill();
+	}
 
 	setupWordField();
 
