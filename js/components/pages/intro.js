@@ -26,7 +26,7 @@ export default function introPage() {
     ];
 
     for (let i = 0; i < instructions.length; i++) {
-        renderText(30, instructions[i], 200.5, 200 + 40 * i);
+        renderText(30, instructions[i], 200.5, 180 + 40 * i);
     }
 
     renderButton([500.5, 640.5, 200, 125], ["START", 527.5, 720.5], songsPage);
