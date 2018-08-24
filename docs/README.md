@@ -2,7 +2,7 @@
 
 ## Overview
 
-![Live Site](https://stevenmchoi.github.io/rhythm_typer/)
+[Live Site](https://stevenmchoi.github.io/rhythm_typer/)
 
 Rhythm Typer is simply a rhythm game with typing game elements, overlapping the goals of each.
 
