@@ -1,12 +1,53 @@
+TODO:
+* Words slide past the bottom of the box continuously
+** Words appear before previous word disappears from screen
+* Letters fall staggeringly
+* Beatmap "Future Retro"
+
+----------------------------------------
+
 Songs:
 Layla - Eric Clapton
+Creative Commons license (CC-BY)
+* Reuse with credit
+
+----------------------------------------
 
 Gameplay:
 Keyboard:
     Circle rings
 
+----------------------------------------
+
 Research:
-[NALGames] Bullet Hills: https://www.youtube.com/watch?v=A0V_wMPx2Eo
-Bullet Hills Trailer: https://www.youtube.com/watch?v=TtuBPql9-Sg
-Bullet Hills: FIRST TIME Gameplay: https://www.youtube.com/watch?v=OTh3nNH_zeU
-GMC Jam 17 Entry WIP ("Bullet Hills"): https://www.youtube.com/watch?v=y6oEbuFGU1I
+
+Beatmapping:
+* http://mziccard.me/2015/05/28/beats-detection-algorithms-1/
+* https://www.npmjs.com/package/music-tempo
+* https://codegolf.stackexchange.com/questions/18543/find-the-beats-in-an-mp3-file
+* https://github.com/rism-ch/verovio
+** https://github.com/rism-ch/verovio/issues/379
+* https://github.com/aubio/aubio
+* http://www.music-ir.org/mirex/wiki/MIREX_HOME
+* http://www.music-ir.org/mirex/wiki/2015:Audio_Tempo_Estimation
+* http://www.music-ir.org/mirex/wiki/2015:Audio_Beat_Tracking
+
+Similar game:
+* [NALGames] Bullet Hills: https://www.youtube.com/watch?v=A0V_wMPx2Eo
+* Bullet Hills Trailer: https://www.youtube.com/watch?v=TtuBPql9-Sg
+* Bullet Hills: FIRST TIME Gameplay: https://www.youtube.com/watch?v=OTh3nNH_zeU
+* GMC Jam 17 Entry WIP ("Bullet Hills"): https://www.youtube.com/watch?v=y6oEbuFGU1I
+
+Other games:
+* https://scratch.mit.edu/projects/2102820/
+
+----------------------------------------
+
+Color palettes:
+https://coolors.co/e3d26f-ca895f-a15e49-4e3822-2f1b25
+http://colormind.io/template/paper-dashboard/
+https://en.wikipedia.org/wiki/Web_colors
+
+----------------------------------------
+
+Target audience:
