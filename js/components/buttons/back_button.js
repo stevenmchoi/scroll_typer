@@ -1,11 +1,11 @@
-import resetScreen from "../../actions/reset_screen";
-import songsPage from "../pages/songs_page";
+import resetScreen from '../../actions/reset_screen';
+import songsPage from '../pages/songs_page';
 
 export default function backButton() {
-  resetScreen();
+	resetScreen();
 
-  // Only pause for backButton
-  window.currentSong.pause();
+	// Only pause for backButton
+	window.currentSong.pause();
 
-  songsPage();
+	songsPage();
 }

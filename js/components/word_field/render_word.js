@@ -1,12 +1,12 @@
-import renderWordBox from "./render_word_box";
-import renderScore from "../score/render_score";
+import renderWordBox from './render_word_box';
+import renderScore from '../score/render_score';
 export default function renderWord(currentPos = 400.5) {
 	ctx.clearRect(textXPos, 0, 1200, 425.5);
 
 	renderWordBox();
 
 	let charLocation = textXPos;
-	const colorScore = ["black", "red", "green"];
+	const colorScore = ['black', 'red', 'green'];
 	let scoreIdx;
 
 	for (let charIdx = 0; charIdx < window.randWord.length; charIdx++) {
@@ -21,7 +21,7 @@ export default function renderWord(currentPos = 400.5) {
 			scoreIdx = 1;
 		}
 
-		ctx.font = "100px Roboto Mono";
+		ctx.font = '100px Roboto Mono';
 		ctx.fillStyle = colorScore[scoreIdx];
 		ctx.fillText(randChar, charLocation, currentPos);
 
@@ -29,7 +29,7 @@ export default function renderWord(currentPos = 400.5) {
 	}
 
 	// Reset fillStyle to black
-	ctx.fillStyle = "black";
+	ctx.fillStyle = 'black';
 
 	// Re-render score on screen
 	renderScore();

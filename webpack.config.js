@@ -1,24 +1,28 @@
-const path = require("path");
+const path = require('path');
+const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 module.exports = {
+	mode,
 	context: __dirname,
-	entry: "./js/entry.js",
+	entry: './js/entry.js',
 	output: {
-		path: path.resolve(__dirname, "assets", "javascripts"),
-		filename: "bundle.js",
+		path: path.resolve(__dirname, 'assets', 'javascripts'),
+		filename: 'bundle.js',
 	},
 	module: {
-		loaders: [{
-			test: [/\.js?$/],
-			exclude: /(node_modules)/,
-			loader: "babel-loader",
-			query: {
-				presets: ["env", "react", "es2015"],
+		rules: [
+			{
+				test: [/\.js?$/],
+				exclude: /(node_modules)/,
+				loader: 'babel-loader',
+				query: {
+					presets: ['env', 'react', 'es2015'],
+				},
 			},
-		}, ],
+		],
 	},
-	devtool: "source-map",
+	devtool: 'source-map',
 	resolve: {
-		extensions: [".js", "*"],
+		extensions: ['.js', '*'],
 	},
 };

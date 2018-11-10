@@ -2,4 +2,4 @@
 
 [Live Site](https://stevenmchoi.github.io/scroll_typer/)
 
-Rhythm Typer is simply a typing game set to music.
+Scroll Typer is simply a typing game set to music.

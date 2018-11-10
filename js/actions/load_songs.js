@@ -15,6 +15,5 @@ export default function loadSongs() {
 		} else {
 			reject(new Error("Can't find song to play"));
 		}
-
 	});
 }
