@@ -6,7 +6,7 @@ export default function wordScroller() {
 	window.wordScrollerInterval = setInterval(() => {
 		renderWord(currentYPos);
 
-		if (currentYPos === 400.5) {
+		if (currentYPos === 500.5) {
 			clearInterval(wordScrollerInterval);
 
 			window.typedKeys = [];

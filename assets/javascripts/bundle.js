@@ -980,7 +980,7 @@ function wordScroller() {
 	window.wordScrollerInterval = setInterval(function () {
 		(0, _render_word2.default)(currentYPos);
 
-		if (currentYPos === 400.5) {
+		if (currentYPos === 500.5) {
 			clearInterval(wordScrollerInterval);
 
 			window.typedKeys = [];
