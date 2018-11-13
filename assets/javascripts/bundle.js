@@ -1245,7 +1245,7 @@ var _render_score2 = _interopRequireDefault(_render_score);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function renderWord(currentPos) {
-	ctx.clearRect(textXPos, 0, 1200, 425.5);
+	ctx.clearRect(textXPos, 0, 1200, 525.5);
 
 	(0, _render_word_box2.default)();
 
@@ -1268,6 +1268,8 @@ function renderWord(currentPos) {
 		ctx.font = '100px Roboto Mono';
 		ctx.fillStyle = colorScore[scoreIdx];
 		ctx.fillText(randChar, charLocation, currentPos);
+
+		ctx.clearRect(textXPos, 425.5, 1200, 100);
 
 		charLocation += ctx.measureText(randChar).width;
 	}

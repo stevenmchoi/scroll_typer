@@ -2,7 +2,7 @@ import renderWordBox from './render_word_box';
 import renderScore from '../score/render_score';
 
 export default function renderWord(currentPos) {
-	ctx.clearRect(textXPos, 0, 1200, 425.5);
+	ctx.clearRect(textXPos, 0, 1200, 525.5);
 
 	renderWordBox();
 
@@ -25,6 +25,8 @@ export default function renderWord(currentPos) {
 		ctx.font = '100px Roboto Mono';
 		ctx.fillStyle = colorScore[scoreIdx];
 		ctx.fillText(randChar, charLocation, currentPos);
+
+		ctx.clearRect(textXPos, 425.5, 1200, 100);
 
 		charLocation += ctx.measureText(randChar).width;
 	}
