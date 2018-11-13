@@ -1103,7 +1103,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function renderVolumeControl() {
 	if (!window.volIdx && window.volIdx !== 0) {
 		window.volIdx = 5;
-		window.currentSong.volume = 0.5;
+		window.currentSong.volume = 0.25;
 	}
 
 	var volume = window.currentSong.volume * 100;
@@ -1111,7 +1111,7 @@ function renderVolumeControl() {
 	ctx.font = '30px Roboto Mono';
 	ctx.textAlign = 'right';
 	ctx.fillText('Volume:', 150.5, 340.5);
-	ctx.fillText(volume, 120.5, 380.5);
+	ctx.fillText(Math.round(volume), 120.5, 380.5);
 	ctx.textAlign = 'start';
 
 	// "+" and "-" buttons
@@ -1135,13 +1135,14 @@ function renderVolumeControl() {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-var volList = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0];
+// const volList = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0];
+var volList = [0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0];
 
 // TODO: merge into changeVol
 var incrVol = exports.incrVol = function incrVol() {
 	ctx.clearRect(0, 355, 200, 40);
 
-	if (window.volIdx < 10) {
+	if (window.volIdx < volList.length - 1) {
 		window.volIdx += 1;
 	}
 
@@ -1151,7 +1152,7 @@ var incrVol = exports.incrVol = function incrVol() {
 
 	ctx.font = '30px Roboto Mono';
 	ctx.textAlign = 'right';
-	ctx.fillText(volume, 120.5, 380.5);
+	ctx.fillText(Math.round(volume), 120.5, 380.5);
 	ctx.textAlign = 'start';
 };
 
@@ -1168,7 +1169,7 @@ var decrVol = exports.decrVol = function decrVol() {
 
 	ctx.font = '30px Roboto Mono';
 	ctx.textAlign = 'right';
-	ctx.fillText(volume, 120.5, 380.5);
+	ctx.fillText(Math.round(volume), 120.5, 380.5);
 	ctx.textAlign = 'start';
 };
 
@@ -1190,7 +1191,7 @@ var decrVol = exports.decrVol = function decrVol() {
 
 //     ctx.font = "30px Roboto Mono";
 //     ctx.textAlign = "right";
-//     ctx.fillText(volume, 120.5, 380.5);
+//     ctx.fillText(Math.round(volume), 120.5, 380.5);
 //     ctx.textAlign = "start";
 // }
 

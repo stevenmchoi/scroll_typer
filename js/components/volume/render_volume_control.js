@@ -5,7 +5,7 @@ import { incrVol, decrVol } from './volume_buttons';
 export default function renderVolumeControl() {
 	if (!window.volIdx && window.volIdx !== 0) {
 		window.volIdx = 5;
-		window.currentSong.volume = 0.5;
+		window.currentSong.volume = 0.25;
 	}
 
 	let volume = window.currentSong.volume * 100;
@@ -13,7 +13,7 @@ export default function renderVolumeControl() {
 	ctx.font = '30px Roboto Mono';
 	ctx.textAlign = 'right';
 	ctx.fillText('Volume:', 150.5, 340.5);
-	ctx.fillText(volume, 120.5, 380.5);
+	ctx.fillText(Math.round(volume), 120.5, 380.5);
 	ctx.textAlign = 'start';
 
 	// "+" and "-" buttons
