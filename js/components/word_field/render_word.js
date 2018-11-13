@@ -1,6 +1,7 @@
 import renderWordBox from './render_word_box';
 import renderScore from '../score/render_score';
-export default function renderWord(currentPos = 400.5) {
+
+export default function renderWord(currentPos) {
 	ctx.clearRect(textXPos, 0, 1200, 425.5);
 
 	renderWordBox();

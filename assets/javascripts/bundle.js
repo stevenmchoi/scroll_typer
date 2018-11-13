@@ -1244,9 +1244,7 @@ var _render_score2 = _interopRequireDefault(_render_score);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function renderWord() {
-	var currentPos = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 400.5;
-
+function renderWord(currentPos) {
 	ctx.clearRect(textXPos, 0, 1200, 425.5);
 
 	(0, _render_word_box2.default)();
