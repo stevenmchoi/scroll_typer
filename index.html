@@ -1,50 +1,57 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+	<head>
 
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Scroll Typer</title>
+		<title>Scroll Typer</title>
 
-	<style>
-		@font-face {
-			font-family: Roboto Mono;
-			src: url('assets/fonts/Roboto_Mono/RobotoMono-Regular.ttf') format('truetype');
-		}
+		<style>
+			@font-face {
+				font-family: Roboto Mono;
+				src: url('assets/fonts/Roboto_Mono/RobotoMono-Regular.ttf') format('truetype');
+			}
 
-		* {
-			padding: 0;
-			margin: 0;
-			color: black;
-			font-size: 100px;
-			font-family: Roboto Mono;
-			background: #eee;
-		}
+			* {
+				padding: 0;
+				margin: 0;
+				color: black;
+				font-size: 100px;
+				font-family: Roboto Mono;
+				background: #eee;
+			}
 
-		canvas {
-			font-size: 50px;
-			font-family: Roboto Mono;
-			background: #fff;
-			display: block;
-			margin: 0 auto;
-			border: 2px solid black;
-		}
-	</style>
+			body {
+				height: 100vh;
+				display: flex;
+				align-items: center;
+			}
 
-</head>
+			canvas {
+				font-size: 50px;
+				font-family: Roboto Mono;
+				background: #fff;
+				display: block;
+				margin: 0 auto;
+				border: 2px solid black;
+			}
 
-<body>
-	<audio src="assets/songs/Animusic/01_Future_Retro.mp3" id="song1"></audio>
-	<audio src="assets/songs/Animusic/02 Stick Figures.mp3" id="song2"></audio>
-	<audio src="assets/songs/Animusic/03 Aqua Harp.mp3" id="song3"></audio>
+		</style>
 
-	<canvas id="game-layer" width="1200" height="800"></canvas>
-	<!-- If background-image not good enough for "game-layer" canvas -->
-	<!-- <canvas id="bkgd-layer" width="1200" height="800"></canvas> -->
-	<script src="assets/javascripts/bundle.js"></script>
+	</head>
 
-</body>
+	<body>
+		<audio src="assets/songs/Animusic/01_Future_Retro.mp3" id="song1"></audio>
+		<audio src="assets/songs/Animusic/02 Stick Figures.mp3" id="song2"></audio>
+		<audio src="assets/songs/Animusic/03 Aqua Harp.mp3" id="song3"></audio>
+
+		<canvas id="game-layer" width="1200" height="800"></canvas>
+		<!-- If background-image not good enough for "game-layer" canvas -->
+		<!-- <canvas id="bkgd-layer" width="1200" height="800"></canvas> -->
+		<script src="assets/javascripts/bundle.js"></script>
+
+	</body>
 
 </html>
