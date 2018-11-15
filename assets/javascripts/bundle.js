@@ -102,7 +102,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-function inButton(_ref, event) {
+var inButton = exports.inButton = function inButton(_ref, event) {
 	var _ref2 = _slicedToArray(_ref, 4),
 	    button_x = _ref2[0],
 	    button_y = _ref2[1],
@@ -113,7 +113,7 @@ function inButton(_ref, event) {
 	var y_coord = event.offsetY;
 
 	return x_coord > button_x && x_coord < button_x + button_len && y_coord > button_y && y_coord < button_y + button_height;
-}
+};
 
 function buttonMousemoveListener(dimens, event) {
 	if (inButton(dimens, event)) {
@@ -235,17 +235,12 @@ function loadSongs() {
 	// https://www.youtube.com/playlist?list=PLRqwX-V7Uu6bKLPQvPRNNE65kBL62mVfx
 
 	return new Promise(function (resolve, reject) {
-		// Bind all songs to window
-		// window.currentSong = document.getElementById("song1");
-		// window.currentSong = new Audio(urlString);
-		// https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Media_events
+		window.allSongs = [song1, song2, song3];
 
-		window.currentSong = song1;
-
-		if (window.currentSong) {
+		if (window.allSongs) {
 			resolve();
 		} else {
-			reject(new Error("Can't find song to play"));
+			reject(new Error("Can't find songs to play"));
 		}
 	});
 }
@@ -320,6 +315,11 @@ function resetScreen() {
 	(0, _in_button_listener.removeButtonListeners)(_back_button2.default);
 	(0, _in_button_listener.removeButtonListeners)(_songs_page2.default);
 	(0, _in_button_listener.removeButtonListeners)(_song_play_page2.default);
+
+	if (window.allSongs) {
+		for (var songIdx = 0; songIdx < window.allSongs.length; songIdx++) {}
+	}
+
 	(0, _in_button_listener.removeButtonListeners)(_game_over_page2.default);
 	// TODO: "incrVol" and "decrVol" listeners aren't disappearing
 	//       Causes larger increments of volume when clicking back and forth
@@ -357,6 +357,30 @@ function resetScreen() {
 	// 	elClone = el.cloneNode(true);
 
 	// el.parentNode.replaceChild(elClone, el);
+}
+
+/***/ }),
+
+/***/ "./js/actions/set_song_num.js":
+/*!************************************!*\
+  !*** ./js/actions/set_song_num.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = setSongNum;
+function setSongNum(dimens, songIdx) {
+	if (inButton(dimens, event)) {
+		window.songNum = songIdx;
+	} else {
+		window.songNum = undefined;
+	}
 }
 
 /***/ }),
@@ -426,6 +450,7 @@ function backButton() {
 	(0, _reset_screen2.default)();
 
 	// Only pause for backButton
+	// TODO: Make pause button
 	window.currentSong.pause();
 
 	(0, _songs_page2.default)();
@@ -644,6 +669,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function songPlayPage() {
 	(0, _reset_screen2.default)();
 
+	window.currentSong = window.allSongs[window.songNum];
+
 	// Render back button
 	(0, _render_button2.default)([-0.5, -0.5, 170, 100], ['Back', 25, 70], _back_button2.default);
 	// Add "left keypress" back
@@ -660,24 +687,6 @@ function songPlayPage() {
 	// renderButton([190.5, 320.5, 80, 80], ["", 200.5, 373.5], playPauseButton);
 	// currentSong.addEventListener("playing", playPauseButton);
 
-	// console.log(window.currentSong.playing);
-
-	// ctx.fillStyle = "black";
-	// ctx.strokeRect(190.5, 320.5, 80, 80);
-	// if (window.currentSong.playing) {
-	// 	ctx.fillRect(208.5, 335.5, 15, 50);
-	// 	ctx.fillRect(238.5, 335.5, 15, 50);
-	// } else {
-	// 	ctx.strokeStyle = 'black';
-	// 	ctx.beginPath();
-	// 	ctx.moveTo(208.5, 335.5);
-	// 	ctx.lineTo(238.5, 360.5);
-	// 	ctx.lineTo(208.5, 385.5);
-	// 	ctx.lineTo(208.5, 335.5);
-	// 	ctx.stroke();
-	// 	ctx.fill();
-	// }
-
 	(0, _setup_word_field2.default)();
 
 	// Render timer
@@ -687,7 +696,7 @@ function songPlayPage() {
 	(0, _render_button2.default)([-0.5, 500.5, 170, 100], ['Quit', 25, 570], _game_over_page2.default);
 
 	// Check when song is over
-	currentSong.addEventListener('ended', _game_over_page2.default);
+	window.currentSong.addEventListener('ended', _game_over_page2.default);
 
 	// keyboard();
 }
@@ -725,6 +734,10 @@ var _intro = __webpack_require__(/*! ./intro */ "./js/components/pages/intro.js"
 
 var _intro2 = _interopRequireDefault(_intro);
 
+var _in_button_listener = __webpack_require__(/*! ../../actions/in_button_listener */ "./js/actions/in_button_listener.js");
+
+var _set_song_num = __webpack_require__(/*! ../../actions/set_song_num */ "./js/actions/set_song_num.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import backButton from "../../buttons/back_button";
@@ -733,7 +746,17 @@ function songsPage() {
 	(0, _reset_screen2.default)();
 
 	// Render start button
-	(0, _render_button2.default)([400.5, 300.5, 400, 125], ['Future Retro', 420.5, 380.5], _song_play_page2.default);
+	// renderButton([400.5, 300.5, 400, 125], ['Future Retro', 420.5, 380.5], songPlayPage);
+	for (var songIdx = 0; songIdx < window.allSongs.length; songIdx++) {
+		var song = window.allSongs[songIdx];
+		var btnDimens = [400.5, 50.5 + songIdx * 150, 420, 125];
+
+		(0, _set_song_num.setSongNum)(btnDimens, songIdx);
+
+		canvas.addEventListener('mousemove');
+
+		(0, _render_button2.default)(btnDimens, [song.dataset.title, 420.5, 130.5 + songIdx * 150], _song_play_page2.default);
+	}
 
 	// TODO: back button to Intro page
 	// Render back button and add "left keypress" back
@@ -1103,10 +1126,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function renderVolumeControl() {
 	if (!window.volIdx && window.volIdx !== 0) {
 		window.volIdx = 5;
-		window.currentSong.volume = 0.25;
+		window.allSongs.map(function (song) {
+			return song.volume = 0.25;
+		});
 	}
 
-	var volume = window.currentSong.volume * 100;
+	var volume = window.volIdx * 5;
 
 	ctx.font = '30px Roboto Mono';
 	ctx.textAlign = 'right';
@@ -1146,9 +1171,11 @@ var incrVol = exports.incrVol = function incrVol() {
 		window.volIdx += 1;
 	}
 
-	window.currentSong.volume = volList[window.volIdx];
+	window.allSongs.map(function (song) {
+		return song.volume = volList[window.volIdx];
+	});
 
-	var volume = window.currentSong.volume * 100;
+	var volume = window.volIdx * 5;
 
 	ctx.font = '30px Roboto Mono';
 	ctx.textAlign = 'right';
@@ -1163,9 +1190,11 @@ var decrVol = exports.decrVol = function decrVol() {
 		window.volIdx -= 1;
 	}
 
-	window.currentSong.volume = volList[window.volIdx];
+	window.allSongs.map(function (song) {
+		return song.volume = volList[window.volIdx];
+	});
 
-	var volume = window.currentSong.volume * 100;
+	var volume = window.volIdx * 5;
 
 	ctx.font = '30px Roboto Mono';
 	ctx.textAlign = 'right';

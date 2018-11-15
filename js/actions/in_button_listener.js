@@ -1,4 +1,4 @@
-function inButton([button_x, button_y, button_len, button_height], event) {
+export const inButton = ([button_x, button_y, button_len, button_height], event) => {
 	const x_coord = event.offsetX;
 	const y_coord = event.offsetY;
 
@@ -8,7 +8,7 @@ function inButton([button_x, button_y, button_len, button_height], event) {
 		y_coord > button_y &&
 		y_coord < button_y + button_height
 	);
-}
+};
 
 function buttonMousemoveListener(dimens, event) {
 	if (inButton(dimens, event)) {

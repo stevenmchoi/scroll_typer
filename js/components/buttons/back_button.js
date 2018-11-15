@@ -5,6 +5,7 @@ export default function backButton() {
 	resetScreen();
 
 	// Only pause for backButton
+	// TODO: Make pause button
 	window.currentSong.pause();
 
 	songsPage();

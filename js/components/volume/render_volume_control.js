@@ -5,10 +5,10 @@ import { incrVol, decrVol } from './volume_buttons';
 export default function renderVolumeControl() {
 	if (!window.volIdx && window.volIdx !== 0) {
 		window.volIdx = 5;
-		window.currentSong.volume = 0.25;
+		window.allSongs.map((song) => (song.volume = 0.25));
 	}
 
-	let volume = window.currentSong.volume * 100;
+	let volume = window.volIdx * 5;
 
 	ctx.font = '30px Roboto Mono';
 	ctx.textAlign = 'right';

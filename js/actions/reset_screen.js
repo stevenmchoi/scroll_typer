@@ -18,6 +18,11 @@ export default function resetScreen() {
 	removeButtonListeners(backButton);
 	removeButtonListeners(songsPage);
 	removeButtonListeners(songPlayPage);
+
+	if (window.allSongs) {
+		for (let songIdx = 0; songIdx < window.allSongs.length; songIdx++) {}
+	}
+
 	removeButtonListeners(gameOverPage);
 	// TODO: "incrVol" and "decrVol" listeners aren't disappearing
 	//       Causes larger increments of volume when clicking back and forth

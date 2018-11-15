@@ -10,6 +10,8 @@ import playPauseButton from '../volume/play_pause_button';
 export default function songPlayPage() {
 	resetScreen();
 
+	window.currentSong = window.allSongs[window.songNum];
+
 	// Render back button
 	renderButton([-0.5, -0.5, 170, 100], ['Back', 25, 70], backButton);
 	// Add "left keypress" back
@@ -26,24 +28,6 @@ export default function songPlayPage() {
 	// renderButton([190.5, 320.5, 80, 80], ["", 200.5, 373.5], playPauseButton);
 	// currentSong.addEventListener("playing", playPauseButton);
 
-	// console.log(window.currentSong.playing);
-
-	// ctx.fillStyle = "black";
-	// ctx.strokeRect(190.5, 320.5, 80, 80);
-	// if (window.currentSong.playing) {
-	// 	ctx.fillRect(208.5, 335.5, 15, 50);
-	// 	ctx.fillRect(238.5, 335.5, 15, 50);
-	// } else {
-	// 	ctx.strokeStyle = 'black';
-	// 	ctx.beginPath();
-	// 	ctx.moveTo(208.5, 335.5);
-	// 	ctx.lineTo(238.5, 360.5);
-	// 	ctx.lineTo(208.5, 385.5);
-	// 	ctx.lineTo(208.5, 335.5);
-	// 	ctx.stroke();
-	// 	ctx.fill();
-	// }
-
 	setupWordField();
 
 	// Render timer
@@ -53,7 +37,7 @@ export default function songPlayPage() {
 	renderButton([-0.5, 500.5, 170, 100], ['Quit', 25, 570], gameOverPage);
 
 	// Check when song is over
-	currentSong.addEventListener('ended', gameOverPage);
+	window.currentSong.addEventListener('ended', gameOverPage);
 
 	// keyboard();
 }

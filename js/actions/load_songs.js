@@ -3,17 +3,12 @@ export default function loadSongs() {
 	// https://www.youtube.com/playlist?list=PLRqwX-V7Uu6bKLPQvPRNNE65kBL62mVfx
 
 	return new Promise((resolve, reject) => {
-		// Bind all songs to window
-		// window.currentSong = document.getElementById("song1");
-		// window.currentSong = new Audio(urlString);
-		// https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Media_events
+		window.allSongs = [song1, song2, song3];
 
-		window.currentSong = song1;
-
-		if (window.currentSong) {
+		if (window.allSongs) {
 			resolve();
 		} else {
-			reject(new Error("Can't find song to play"));
+			reject(new Error("Can't find songs to play"));
 		}
 	});
 }

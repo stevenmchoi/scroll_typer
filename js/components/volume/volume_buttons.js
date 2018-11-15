@@ -31,9 +31,9 @@ export const incrVol = () => {
 		window.volIdx += 1;
 	}
 
-	window.currentSong.volume = volList[window.volIdx];
+	window.allSongs.map((song) => (song.volume = volList[window.volIdx]));
 
-	let volume = window.currentSong.volume * 100;
+	let volume = window.volIdx * 5;
 
 	ctx.font = '30px Roboto Mono';
 	ctx.textAlign = 'right';
@@ -48,9 +48,9 @@ export const decrVol = () => {
 		window.volIdx -= 1;
 	}
 
-	window.currentSong.volume = volList[window.volIdx];
+	window.allSongs.map((song) => (song.volume = volList[window.volIdx]));
 
-	let volume = window.currentSong.volume * 100;
+	let volume = window.volIdx * 5;
 
 	ctx.font = '30px Roboto Mono';
 	ctx.textAlign = 'right';
